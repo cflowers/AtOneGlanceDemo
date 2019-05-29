@@ -88,6 +88,7 @@ public class CBSceneWallPics : AbstractCBScene
     {
         destroyButtons();
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
+        Debug.Log("GameObject:" + bg);
         bg.GetComponent<Background>().back();
         d.done = false;
 
