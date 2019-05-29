@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - freedemo
+  - canvas
+  - textBox
+  - mc
+  - panelBtn
+  - panelText
+  - popup
+  - popup_panel
+  - points
+  - timerText
+  - clueText
+  - notebook
+  - notebook_text
+  - bg
+  - keyboardButton
+  - winIcon
+  - screen
+  - node
+  - ri
+  - whatever
+  - listenerObj
+  - placementList
+  - scrollbox
+  - hudImg
+  - main_screen
+  - enterSuspect
+  - name
+  - recSuspect1
+  - suspectPic
+  - btnQues
+  - popUpLis
+  - scrollVert
+  - picPh
+  - clueZm
+  - donePic
+  - CloseBtnPic
+  - contacts
+  - stacyMess1
+  - stacyMess1Zm
+  - stacyMess2
+  - stacyMess2Zm
+  - dadMess1
+  - dadMess1Zm
+  - dadMess2
+  - dadMess2Zm
+  - phonePopUp
+  - timerPhone
+  - contactFareed
+  - fareedMess1
+  - fareedMess1Zm
+  - fareedMess2
+  - fareedMess2Zm
+  - fareedMess3
+  - fareedMess3Zm
+  - testTex
+  - writeBtn
+  - dontWriteBtn
+  - placeHolder1
+  - firstPlaceHolder
+  - nextPanel
+  - prevPanel
+  - sfx
+  - lisaBtn
+  - dadBtn
+  - sisBtn
+  - fareedBtn
+  - placeHolderLisa
+  - placeHolderDad
+  - placeHolderSis
+  - placeHolderFareed
+  - clueZmPic
+  - clueZmDesc
+  - clueZmTitle
+  - solvePanel
+  - whoPanel
+  - saveWindow
+  - saveName
+  - loadWindow
+  - loadName
+  - loadButton
+  - loadPanel
+  - suspectScreen
+  - inputSuspect
+  - notebookToggle
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: PopUp
+    uniqueID: 1735240691
+    locked: 0

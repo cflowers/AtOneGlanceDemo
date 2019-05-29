@@ -1,0 +1,23 @@
+
+{
+"Items":[
+{"item":"Envelope",
+"first":"No addresses on envelope",
+"second":"Powdery substance on envelope",
+"third":"Lipstick was seen on envelope",
+"fourth":"Fingerprints on envelope"},
+
+{"item":"Body",
+"first":"Burnt Marks around the mouth",
+"second":"Powdery substance in the eyes",
+"third":"Wine seen in the mouth",
+"fourth":"Bullet in the left temple"},
+
+{"item":"Hand",
+"first":"Powdery substance on the fingers",
+"second":"Crack nails",
+"third":"Blood on the hands",
+"fourth":"Bullet in the hand"}
+]
+
+}
