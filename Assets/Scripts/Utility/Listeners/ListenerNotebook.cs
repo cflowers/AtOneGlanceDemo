@@ -15,6 +15,7 @@ public class ListenerNotebook : MonoBehaviour
     RawImage noteImg;
     bool changed;
     Misc misc = new Misc();
+     GameObject notebookText;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class ListenerNotebook : MonoBehaviour
             fontSize = notes.fontSize;
             noteImg = Scene_GettingObjs.getObjs().GetComponentInChildren<RawImage>();
             changed = false;
+            notebookText = GameObject.FindGameObjectWithTag("notebook_text");
         }
     }
 
@@ -38,7 +40,7 @@ public class ListenerNotebook : MonoBehaviour
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
         if (NotebookInfo.getNotebook().getFirstItemArr() != null)
         {
-            notes.text = NotebookInfo.getNotebook().getFirstItemArr().getTextFile();
+            notes.text = NotebookInfo.getNotebook().getFirstItemArr().getItemDesc();
             noteImg.texture = NotebookInfo.getNotebook().getFirstItemArr().getPic();
         }
     }
@@ -47,22 +49,34 @@ public class ListenerNotebook : MonoBehaviour
     public void write()
     {
         //save item to NotebookInfo
-        GameObject notebookText = GameObject.FindGameObjectWithTag("notebook_text");
         GameObject notebookToggle = Scene_GettingObjs.getObjs().NotebookToggle;
         Toggle[] toggles = notebookToggle.GetComponentsInChildren<Toggle>();
+        Debug.Log("Toggle Length:" + toggles.Length);
         foreach(Toggle toggle in toggles){
-            if (toggle.isOn)
-                notebookText.GetComponent<Text>().text = toggle.GetComponent<Text>().text;
+            if (toggle.isOn){
+                Debug.Log("Text:" +toggle.GetComponentInChildren<Text>().text);
+                  notebookText.GetComponent<Text>().text += 
+                        toggle.GetComponentInChildren<Text>().text + "\n";
+                        //either make a new JsonItem thing to hold text that user checked off
+                        //or try to use the ItemFactory class where you will set the ItemText
+                        //except having it presetted
+            }
         }
-        Scene_GettingObjs.getObjs().Canvas.GetComponent<PopUp>().getItem().setItemDesc(notebookText.GetComponent<Text>().text);
-        NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<PopUp>().getItem());//save item to notebook
+        
+     Debug.Log("Object:" + Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getPic());
+       Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.setItemDesc(notebookText.GetComponent<Text>().text);
+       NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item);//save item to notebook
+        
         //disable toggles
         misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle,false);
+        notebookText.GetComponent<Text>().enabled = true;
+        //
                    
     }
     //close notebook
     public void close_notebook()
     {
+        notebookText.GetComponent<Text>().enabled = false;
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = false;
         index = 0;
     }
