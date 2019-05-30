@@ -687,9 +687,10 @@ public class Background : MonoBehaviour
     {
         if (linkedList.Count > 1)
         {
+            Debug.Log("Got here in back");
             linkedList.RemoveLast();
             changeCurrent(linkedList.Last.Value.name);
-           // wr.boolHandle(linkedList.Last.Value.name);
+            wr.boolHandle(linkedList.Last.Value.name);
             Texture2D tex = linkedList.Last.Value.tex;
             rawImageComp.texture = tex;
             back_fire();
