@@ -56,10 +56,12 @@ public class CBSceneFPMessLog : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new LogItem();
-        this.item.beginText();
+      //  this.item.beginText();
         this.item.loadImage();
+         JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Log");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

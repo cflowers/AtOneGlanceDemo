@@ -56,7 +56,7 @@ using UnityEngine.Events;
             cont.Inspection = Inspection.getEnvelopeInsp();
             buttonsDic["map"] = cont;
             c.createButtons(buttonsDic);
-            Debug.Log("Inspection" + buttonsDic["map"].Inspection);
+           // Debug.Log("Inspection" + buttonsDic["map"].Inspection);
            // c.createButtons("buttonEnvelope", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_envelopeZoom(); }),
              // false, true);
         }
@@ -256,12 +256,6 @@ using UnityEngine.Events;
         private void lis_back()
         {
             alreadyHere = true;
-         //   GameObject tb = GameObject.FindGameObjectWithTag("canvas"); 
-          //  tb.GetComponent<TextBox>().textBool = false;
-            //GameObject bg = GameObject.FindGameObjectWithTag("bg");
-            //bg.GetComponent<Background>().back();
-            //d.done = false;
-
         }
 
 	}

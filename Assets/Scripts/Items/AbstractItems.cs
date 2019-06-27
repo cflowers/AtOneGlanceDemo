@@ -22,6 +22,8 @@ public abstract class AbstractItems : ItemsFactory
 
     public virtual void setItemDesc(string itemDesc) { this.itemDesc = itemDesc; }
 
+    public string getItemDesc() { return this.itemDesc; }
+
     public void begin(string path) {
         loadTextFile(path);
         parseText();

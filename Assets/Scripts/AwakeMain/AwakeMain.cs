@@ -10,6 +10,7 @@ public class AwakeMain : MonoBehaviour {
     void Awake()
     {
         //display PlayerInfo
+        
         //Load Items int Json Object
         using (StreamReader r = new StreamReader("Assets/Resources/Text/Json/Items.json"))
         {

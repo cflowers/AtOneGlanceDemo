@@ -75,7 +75,7 @@ using UnityEngine.Events;
 
                 for (int i = 0; i < size; i++)
                 {
-                    Debug.Log("Removed" + getButtons().First.Value);
+                    // Debug.Log("Removed" + getButtons().First.Value);
                     GameObject.Destroy(getButtons().First.Value);
                     getButtons().RemoveFirst();
                 }

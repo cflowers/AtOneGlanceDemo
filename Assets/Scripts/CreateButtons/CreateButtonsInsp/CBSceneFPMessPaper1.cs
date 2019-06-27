@@ -58,11 +58,13 @@ public class CBSceneFPMessPaper1 : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new RTPaperItem1();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
         //tb.GetComponent<DisplayText>().readLine = true;
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("RTPaper1");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setRTPaper1Insp(true);

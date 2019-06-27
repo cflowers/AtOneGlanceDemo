@@ -60,10 +60,12 @@ public class CBSceneGun : AbstractCBScene
         //show text of the envelope contents
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");   
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new GunItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Gun");  
        // tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

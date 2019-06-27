@@ -57,8 +57,10 @@ public class CBSceneShovel : AbstractCBScene
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
         tb.GetComponent<TextBox>().textBool = true;
         item = new ShovelItem();
-        this.item.beginText();
+    //    this.item.beginText();
         this.item.loadImage();
+          JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Shovel");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
