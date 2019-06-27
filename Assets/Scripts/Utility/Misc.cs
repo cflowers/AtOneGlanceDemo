@@ -140,15 +140,33 @@ using System.Collections.Generic;
 
        public void _ableToggles(GameObject togglesGrp, bool able)
        {
+          
+           toggleOff(togglesGrp);
            Image[] images = togglesGrp.GetComponentsInChildren<Image>();
            Text[] t = togglesGrp.GetComponentsInChildren<Text>();
+        
            for (int i = 0; i < images.Length; i++)
            {
+             
                images[i].enabled = able;
                if (i < t.Length)
                    t[i].enabled =able;
            }
        }
+
+       private void toggleOff(GameObject togglesGrp){
+        Toggle[] toggles = togglesGrp.GetComponentsInChildren<Toggle>();
+          Debug.Log(toggles[0].graphic.color);
+          
+            for (int i = 0; i < toggles.Length; i++)
+           {
+               toggles[i].graphic.color = new Color(1,1,1,0);
+             //  toggles[i].graphic.canvasRenderer.SetAlpha(0);
+               toggles[i].isOn = false;
+           }
+       }
+
+
 
 
 

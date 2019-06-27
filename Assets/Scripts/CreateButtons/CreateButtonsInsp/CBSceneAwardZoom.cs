@@ -59,13 +59,11 @@ public class CBSceneAwardZoom : AbstractCBScene
 
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+      //  tb.GetComponent<TextBox>().textBool = true;
         item = new AwardItem();
-        this.item.beginText();
         this.item.loadImage();
-
-       
-        //tb.GetComponent<DisplayText>().readLine = true;
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Award");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setAward(true);

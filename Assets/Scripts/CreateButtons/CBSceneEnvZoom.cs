@@ -83,7 +83,7 @@ public class CBSceneEnvZoom : AbstractCBScene
         //d.done = false;
         item = new EnvelopeItem();
         this.item.loadImage();
-        this.item.beginText();
+        //this.item.beginText();
         JsonBuffer jsonBuffer = new JsonBuffer();
         jsonBuffer.setToggleText("Envelope");  
         bg.GetComponent<DisplayText>().item = item;

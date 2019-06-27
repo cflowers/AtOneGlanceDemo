@@ -58,8 +58,10 @@ public class CBScenePurpleBookCase : AbstractCBScene
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");   
         tb.GetComponent<TextBox>().textBool = true;
         item = new PBookcaseItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
+         JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("BookCase");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

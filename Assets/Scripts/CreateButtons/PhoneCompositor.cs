@@ -82,7 +82,11 @@ using UnityEngine.UI;
             updatePoints(howMany);
             animatePics(anim);
             resetTimer();
-           
+           Misc misc = new Misc();
+            //enable toggles
+            misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, true);
+            //open notebook
+            Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
         }
 
         private void helper_lisDontWrite(int howMany)

@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 public class ListenerNotebook : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class ListenerNotebook : MonoBehaviour
     RawImage noteImg;
     bool changed;
     Misc misc = new Misc();
-     GameObject notebookText;
+    GameObject notebookText;
 
     void Start()
     {
@@ -27,7 +29,7 @@ public class ListenerNotebook : MonoBehaviour
             origSizeDelta = notes.rectTransform.sizeDelta;
             origBestFit = notes.resizeTextForBestFit;
             fontSize = notes.fontSize;
-            noteImg = Scene_GettingObjs.getObjs().GetComponentInChildren<RawImage>();
+            noteImg = Scene_GettingObjs.getObjs().Notebook.GetComponentInChildren<RawImage>();
             changed = false;
             notebookText = GameObject.FindGameObjectWithTag("notebook_text");
         }
@@ -40,8 +42,23 @@ public class ListenerNotebook : MonoBehaviour
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
         if (NotebookInfo.getNotebook().getFirstItemArr() != null)
         {
+            // Debug.Log("Item Text:" + NotebookInfo.getNotebook().getFirstItemArr().getItemDesc());
+            // Debug.Log("Item Pic:" + NotebookInfo.getNotebook().getFirstItemArr().getPic());
+            notebookText.GetComponent<Text>().enabled = true;
+            noteImg.enabled = true;
             notes.text = NotebookInfo.getNotebook().getFirstItemArr().getItemDesc();
             noteImg.texture = NotebookInfo.getNotebook().getFirstItemArr().getPic();
+        }
+    }
+
+    public void toggledOn()
+    {
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>() != null)
+        {
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
+            Toggle toggle = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();
+            Debug.Log(toggle);
+            toggle.graphic.color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -52,31 +69,35 @@ public class ListenerNotebook : MonoBehaviour
         GameObject notebookToggle = Scene_GettingObjs.getObjs().NotebookToggle;
         Toggle[] toggles = notebookToggle.GetComponentsInChildren<Toggle>();
         Debug.Log("Toggle Length:" + toggles.Length);
-        foreach(Toggle toggle in toggles){
-            if (toggle.isOn){
-                Debug.Log("Text:" +toggle.GetComponentInChildren<Text>().text);
-                  notebookText.GetComponent<Text>().text += 
-                        toggle.GetComponentInChildren<Text>().text + "\n";
-                        //either make a new JsonItem thing to hold text that user checked off
-                        //or try to use the ItemFactory class where you will set the ItemText
-                        //except having it presetted
+        notebookText.GetComponent<Text>().text = "";
+        foreach (Toggle toggle in toggles)
+        {
+            if (toggle.isOn)
+            {
+                Debug.Log("Text:" + toggle.GetComponentInChildren<Text>().text);
+                notebookText.GetComponent<Text>().text +=
+                      toggle.GetComponentInChildren<Text>().text + "\n";
+                //either make a new JsonItem thing to hold text that user checked off
+                //or try to use the ItemFactory class where you will set the ItemText
+                //except having it presetted
             }
         }
-        
-     Debug.Log("Object:" + Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getPic());
-       Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.setItemDesc(notebookText.GetComponent<Text>().text);
-       NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item);//save item to notebook
-        
+
+        Debug.Log("Object:" + Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getPic());
+        Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.setItemDesc(notebookText.GetComponent<Text>().text);
+        //save item to notebook
+        NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item);
         //disable toggles
-        misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle,false);
+        misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, false);
         notebookText.GetComponent<Text>().enabled = true;
-        //
-                   
+        Debug.Log("Pages write:" + NotebookInfo.getNotebook().getList().Count);
     }
+
     //close notebook
     public void close_notebook()
     {
         notebookText.GetComponent<Text>().enabled = false;
+        noteImg.enabled = false;
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = false;
         index = 0;
     }
@@ -85,14 +106,16 @@ public class ListenerNotebook : MonoBehaviour
     //turn to the next page in notebook
     public void turn_foward()
     {
+        Debug.Log("Pages:" + NotebookInfo.getNotebook().getList().Count);
         if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count - 1)
         {
+            Debug.Log("Forward:" + NotebookInfo.getNotebook().getArr()[index]);
             resetText();
             index++;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
                 resizeTextItems();
-                notes.text = NotebookInfo.getNotebook().getArr()[index].getTextFile();
+                notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }
         }
@@ -108,7 +131,7 @@ public class ListenerNotebook : MonoBehaviour
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
                 resizeTextItems();
-                notes.text = NotebookInfo.getNotebook().getArr()[index].getTextFile();
+                notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }
         }
