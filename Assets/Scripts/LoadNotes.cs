@@ -221,7 +221,8 @@ public class LoadNotes : MonoBehaviour {
     void nextImages()
     {
         rows = rows + 6;
-       // Debug.Log("Rows:" + rows);
+        Debug.Log("Rows:" + NotebookInfo.getNotebook());
+         Debug.Log("Rows:" + NotebookInfo.getNotebook().getList().Count);
         int width = 100;
         int current = 140;
         int space = 20;

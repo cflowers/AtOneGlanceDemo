@@ -26,7 +26,7 @@ public class PlaceButtonsMain : MonoBehaviour {
             sceneAllButtons();
             sceneEnvZoomButtons();
             sceneGunButtons();
-         //   sceneEnvContButtons();
+            sceneEnvContButtons();
             sceneFPButtons();
             sceneFPUpButtons();
             sceneFPDownButtons();
@@ -122,10 +122,10 @@ public class PlaceButtonsMain : MonoBehaviour {
         controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE"], new CBSceneEnvZoom());
     }
 
-    //void sceneEnvContButtons()
-    //{
-    //    controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE_CONT"], new CBSceneEnvCont());
-    //}
+    void sceneEnvContButtons()
+    {
+       controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE_CONT"], new CBSceneEnvCont());
+    }
 
     void sceneGunButtons()
     {

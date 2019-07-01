@@ -60,8 +60,10 @@ public class CBSceneFareed3 : AbstractCBScene
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
         img.GetComponent<RawImage>().enabled = true;
         item = new PurplePhoneItem3();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Fareed3");  
         bg.GetComponent<Background>().purplePhone_fareed_zm3();
         d.done = false;
         bg.GetComponent<DisplayText>().item = item;

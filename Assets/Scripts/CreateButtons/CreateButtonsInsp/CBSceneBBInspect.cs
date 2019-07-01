@@ -57,10 +57,12 @@ public class CBSceneBBInspect : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new BoomBoxItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("BoomBox");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setBoomBox(true);

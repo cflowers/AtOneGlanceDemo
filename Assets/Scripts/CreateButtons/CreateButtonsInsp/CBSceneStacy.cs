@@ -69,8 +69,10 @@ public class CBSceneStacy : AbstractCBScene
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
         img.GetComponent<RawImage>().enabled = true;
         item = new GoldPhoneItem();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Stacy1");  
         bg.GetComponent<Background>().goldPhone_stacy_zm();
         d.done = false;
         bg.GetComponent<DisplayText>().item = item;

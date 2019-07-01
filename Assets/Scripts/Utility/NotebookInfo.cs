@@ -15,6 +15,7 @@ public class NotebookInfo : MonoBehaviour {
     void Awake()
     {
         assignInstance();
+      //  NotebookInfo.itemList =  new LinkedList<ItemsFactory>();
     }
 
     void assignInstance()
@@ -33,9 +34,11 @@ public class NotebookInfo : MonoBehaviour {
 
     public void AddItem(ItemsFactory item)
     {
+         Debug.Log("Notebook:" + NotebookInfo.itemList.Count);
         NotebookInfo.itemList.AddLast(item);
         NotebookInfo.items[index] = item;
         index = index + 1;
+        Debug.Log("Notebook:" + NotebookInfo.itemList.Count);
     }
 
     public ItemsFactory getFirstItemArr()

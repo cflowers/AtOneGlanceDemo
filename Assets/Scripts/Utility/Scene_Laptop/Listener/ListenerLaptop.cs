@@ -25,6 +25,8 @@ public class ListenerLaptop : MonoBehaviour
        
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            Debug.Log("Scene 2:" + NotebookInfo.getNotebook().getArr()[0]);
+             Debug.Log("Scene 2:" + NotebookInfo.getNotebook().getList().Count);
             bg = Scene2_GettingObjs.getObjs().Canvas;
             keyboardButton = Scene2_GettingObjs.getObjs().KeyboardButton;
             winIcon = Scene2_GettingObjs.getObjs().WinIcon;

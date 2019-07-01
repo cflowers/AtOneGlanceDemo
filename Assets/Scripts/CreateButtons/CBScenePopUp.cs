@@ -100,7 +100,7 @@ using UnityEngine.UI;
             tb.GetComponent<TextBox>().textBool = false;
             TimerSC.getTimer().ResetTimer();
             TimerSC.getTimer().IsTicking = false;
-            NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());
+            //NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());
             Scene_GettingObjs.getObjs().Canvas.GetComponent<Background>().back();
             d.done = false;
             d2.done = false;
