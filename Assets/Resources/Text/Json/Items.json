@@ -2,39 +2,39 @@
     "Items": [
         {
             "item": "Envelope",
-            "first": "No addresses on envelope",
-            "second": "Powdery substance on envelope",
-            "third": "Lipstick was seen on envelope",
-            "fourth": "Fingerprints on envelope"
+            "first": "No addresses on the envelope",
+            "second": "Powdery substance on the envelope",
+            "third": "Lipstick was seen on the envelope",
+            "fourth": "Fingerprints was seen on the envelope"
         },
 
         {
             "item": "Body",
-            "first": "Burnt Marks around the mouth",
-            "second": "Powdery substance in the eyes",
-            "third": "Wine seen in the mouth",
-            "fourth": "Bullet in the left temple"
+            "first": "Burnt Marks were found around the mouth",
+            "second": "Victim seem to have foam in the mouth",
+            "third": "Wine was seen in the mouth",
+            "fourth": "Bullet in the right temple"
         },
 
         {
             "item": "Hand",
-            "first": "Powdery substance on the fingers",
-            "second": "Gun residue on the hand",
-            "third": "Blood on the hands",
-            "fourth": "Bullet in the hand"
+            "first": "Powdery substance was found on the fingers",
+            "second": "Gun residue was found on the hand",
+            "third": "Fingernails were chipped",
+            "fourth": "Fingers are red like they were inflammed"
         },
         {
             "item": "Award",
             "first": "A staff reward",
             "second": "Name on it says Lisa Hawk",
             "third": "Name on it says Stacy Hawq",
-            "fourth": "An artist reward"
+            "fourth": "An award for employees"
         },
 
         {
             "item": "Binder",
             "first": "Label said Pro-Am",
-            "second": "Label has be ripped off",
+            "second": "Label has been ripped off",
             "third": "Binder is empty",
             "fourth": "Label said Anti-Am"
         },
@@ -42,25 +42,25 @@
         {
             "item": "BookAnthrax",
             "first": "A children's book",
-            "second": "Pornography contents",
-            "third": "It is talking about Vollux",
+            "second": "Pornographic contents",
+            "third": "It is talking about Vollux 2",
             "fourth": "Talking about a poison substance"
         },
 
         {
             "item": "BookCase",
-            "first": "Books",
+            "first": "Cooking Books ",
             "second": "Books are the same color",
-            "third": "Encyclopedias?",
+            "third": "Encyclopedias",
             "fourth": "Books of Substance"
         },
 
         {
             "item": "BoomBox",
-            "first": "Vollux2 is an acute substance",
-            "second": "Stolen equipment",
-            "third": "A bluray boombox",
-            "fourth": "Even with the slightest touch, the recipient could become effected"
+            "first": "Vollux 2 is an acute substance",
+            "second": "The boom box is stolen equipment",
+            "third": "A boombox with a CD in it",
+            "fourth": "Even with the slightest touch, the recipient could become effected by substance"
         },
 
         {
@@ -75,16 +75,16 @@
             "item": "CD",
             "first": "A musical CD with a singer's picture on it",
             "second": "Singer's name is Stacy Hawk",
-            "third": "CD was broken",
-            "fourth": "Great music"
+            "third": "CD was not there",
+            "fourth": "CD was present"
         },
 
         {
             "item": "Clock",
             "first": "An antique grandfather clock",
             "second": "It is reading the time of 3:10",
-            "third": "It must be broke",
-            "fourth": "Someone broke the clock"
+            "third": "The clock hands were moving",
+            "fourth": "It seems to be broken"
         },
 
         {
@@ -92,13 +92,13 @@
             "first": "Blood was on the book",
             "second": "It talked about Canada",
             "third": "People's name was written in it only",
-            "fourth": "Math..."
+            "fourth": "It was someone's diary"
         },
 
         {
             "item": "CupLook",
             "first": "Blood was in the cup",
-            "second": "Cup was chipped",
+            "second": "Cup was cracked",
             "third": "Cup was drunk from",
             "fourth": "Cup is beautiful..."
         },
@@ -124,15 +124,15 @@
             "first": "Canada is circled on the globe",
             "second": "Globe was broken",
             "third": "Globe was hollow",
-            "fourth": "Globe is beautiful"
+            "fourth": "Globe has been tampered with"
         },
 
         {
             "item": "Gun",
             "first": "No fingerprints on the gun",
             "second": "Fingerprints on the gun",
-            "third": "Blood on the gun",
-            "fourth": "It is an eagle 275"
+            "third": "It is an eagle 275",
+            "fourth": "Gun located near left hand"
         },
 
         {
@@ -140,7 +140,7 @@
             "first": "A strange, ancient golden head",
             "second": "A head of Apollo",
             "third": "A head made out of real gold",
-            "fourth": "No ears on the head"
+            "fourth": "Obtained in archaelogic dig"
         },
 
         {
@@ -156,14 +156,14 @@
             "first": "Holder had wine on it",
             "second": "Logs were used",
             "third": "Logs were not used",
-            "fourth": "Holder was broken"
+            "fourth": "Holder had blood in it"
         },
 
         {
             "item": "Log",
             "first": "Unused log",
             "second": "Burnt log",
-            "third": "Log was used as a weapon",
+            "third": "Looked like log was used as a weapon",
             "fourth": "Log is dried up"
         },
 
@@ -203,16 +203,16 @@
             "item": "RTPaper1",
             "first": "Was recently used to kill victim",
             "second": "Had many fingerprints on it",
-            "third": "Was recently used in fireplace",
-            "fourth": "Had a Who engraved in it"
+            "third": "general information about velocity",
+            "fourth": "general information about Italy"
         },
 
         {
             "item": "RTPaper2",
-            "first": "Victim is shown in picture",
-            "second": "A man is shown in picture",
-            "third": "A man is shown holding victim",
-            "fourth": "They appear to be in the desert"
+            "first": "general information about velocity",
+            "second": "general information about sales",
+            "third": "general information about space science",
+            "fourth": "general information about Italy"
         },
 
         {
@@ -225,9 +225,9 @@
 
         {
             "item": "Statue",
-            "first": "A ancient statue",
+            "first": "An ancient, authentic statue",
             "second": "A stolen statue",
-            "third": "A broken statue",
+            "third": "It looks like it is an archaelogic artifact",
             "fourth": "A cemented statue"
         },
 
@@ -258,7 +258,7 @@
         {
             "item": "Tiger",
             "first": "An artistic statue",
-            "second": "Looks foreign",
+            "second": "A fake statue",
             "third": "An authentic artifact",
             "fourth": "Statue is from Ohio"
         },
@@ -266,8 +266,8 @@
         {
             "item": "WallPic",
             "first": "A woman singing",
-            "second": "Woman is a member of the family",
-            "third": "Victim a fan of the singer",
+            "second": "Picture was tampered with",
+            "third": "Victim is a fan of the singer",
             "fourth": "Woman seen on another object in the room"
         },
 
@@ -297,23 +297,23 @@
 
         {
             "item":"Dad1",
-            "first":"The owner of the phone seemed to had a fight with her father last night at dinner",
-            "second":"Her dad had a disagreement with her about someone named Fareed",
-            "third":"Her dad doesn't like Fareed and Fareed doesn't like the dad's job",
-            "fourth":"Her dad job is a government job"
+            "first":"The owner of the phone seemed to had a fight with his/her father last night at dinner",
+            "second":"His/Her dad had a disagreement with him about someone named Fareed",
+            "third":"His/Her dad doesn't like Fareed and Fareed doesn't like the Dad's job",
+            "fourth":"His/Her dad job is a government job"
         },
 
         {
             "item":"Dad2",
             "first":"The dad said they were having a party right now",
-            "second":"The dad wasn't going to invite the owner of the phone",
+            "second":"The dad was going to invite the owner of the phone",
             "third":"The dad wasn't going to invite the owner of the phone",
             "fourth":"The sister said the dad and owner of phone should talk their problems out"
         },
 
         {
             "item":"Fareed1",
-            "first":"The owner of the phone had a relationship with someone named Fareed",
+            "first":"The owner of the phone had a relationship with someone",
             "second":"Fareed sent flowers to the owner of the phone",
             "third":"Fareed sent letters to the owner of the phone",
             "fourth":"Owner of the phone made a map where it will be good to distribute the gifts"
@@ -321,10 +321,10 @@
 
         {
             "item":"Fareed2",
-            "first":"Fareed send the owner of the phone tickets",
+            "first":"'Love of my Life' send the owner of the phone tickets",
             "second":"The owner listened to a CD",
-            "third":"Fareed and owner met in Egypt",
-            "fourth":"Fareed called owner's dad a fool but then reassures that he will make dad see one day"
+            "third":"'Love of my Life'  and owner met in Egypt",
+            "fourth":"'Love of my Life' is Fareed"
         },
 
         {
@@ -337,7 +337,7 @@
 
         {
             "item":"Stacy1",
-            "first":"Stacy went to Egypt",
+            "first":"Stacy seemed to be an archaelogist",
             "second":"Stacy went to Italy",
             "third":"Stacy sent a CD",
             "fourth":"Stacy seemed to be a singer on tour"
