@@ -60,11 +60,12 @@ public class CBSceneBinder : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+      //  tb.GetComponent<TextBox>().textBool = true;
         item = new BinderItem();
-        this.item.beginText();
+      //  this.item.beginText();
         this.item.loadImage();
-        //tb.GetComponent<DisplayText>().readLine = true;
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Binder");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setBinder(true);

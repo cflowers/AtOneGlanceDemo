@@ -56,10 +56,12 @@ public class CBSceneCouchBook : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new CouchBookItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("CouchBook");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

@@ -61,8 +61,10 @@ public class CBSceneDad2 : AbstractCBScene
        
         img.GetComponent<RawImage>().enabled = true;
         item = new DadItem2();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Dad2");  
         Scene_GettingObjs.getObjs().Canvas.GetComponent<Background>().goldPhone_dad_zm2();
         d.done = false;
         Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item = item;

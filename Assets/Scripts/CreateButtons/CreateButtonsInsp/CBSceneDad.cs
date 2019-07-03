@@ -73,8 +73,10 @@ public class CBSceneDad : AbstractCBScene
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
         img.GetComponent<RawImage>().enabled = true;
         item = new DadItem1();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Dad1");  
         bg.GetComponent<Background>().goldPhone_dad_zm();
         d.done = false;
         bg.GetComponent<DisplayText>().item = item;

@@ -208,18 +208,20 @@ public class Hover_Laptop : EventTrigger
 
     //goes with checkTagTex method
     void loopNoteBookInfo(Texture tex)
-    {
-        for (int i = 0; i < NotebookInfo.getNotebook().getArr().Length; i++)
+    {  Debug.Log("Length Tex1:" + NotebookInfo.getNotebook().getArr().Length);
+        for (int i = 0; i < NotebookInfo.getNotebook().getList().Count; i++)
             setClueZmPicDesc(i, tex);
     }
 
     //goes with loopNoteBookInfo method
     void setClueZmPicDesc(int i, Texture tex)
     {
+        Debug.Log("Tex1:" + tex.name);
+          Debug.Log("Tex2:" + NotebookInfo.getNotebook().getArr()[i].getPic().name);
        if (NotebookInfo.getNotebook().getArr()[i].getPic().name == tex.name)
            {
              clueZmPic.texture = NotebookInfo.getNotebook().getArr()[i].getPic();
-             clueZmDesc.text = NotebookInfo.getNotebook().getArr()[i].getTextFile();
+             clueZmDesc.text = NotebookInfo.getNotebook().getArr()[i].getItemDesc();
            } 
     }
 

@@ -1,23 +1,356 @@
-
 {
-"Items":[
-{"item":"Envelope",
-"first":"No addresses on envelope",
-"second":"Powdery substance on envelope",
-"third":"Lipstick was seen on envelope",
-"fourth":"Fingerprints on envelope"},
+    "Items": [
+        {
+            "item": "Envelope",
+            "first": "No addresses on the envelope",
+            "second": "Powdery substance on the envelope",
+            "third": "Lipstick was seen on the envelope",
+            "fourth": "Fingerprints was seen on the envelope"
+        },
 
-{"item":"Body",
-"first":"Burnt Marks around the mouth",
-"second":"Powdery substance in the eyes",
-"third":"Wine seen in the mouth",
-"fourth":"Bullet in the left temple"},
+        {
+            "item": "Body",
+            "first": "Burnt Marks were found around the mouth",
+            "second": "Victim seem to have foam in the mouth",
+            "third": "Wine was seen in the mouth",
+            "fourth": "Bullet in the right temple"
+        },
 
-{"item":"Hand",
-"first":"Powdery substance on the fingers",
-"second":"Crack nails",
-"third":"Blood on the hands",
-"fourth":"Bullet in the hand"}
-]
+        {
+            "item": "Hand",
+            "first": "Powdery substance was found on the fingers",
+            "second": "Gun residue was found on the hand",
+            "third": "Fingernails were chipped",
+            "fourth": "Fingers are red like they were inflammed"
+        },
+        {
+            "item": "Award",
+            "first": "A staff reward",
+            "second": "Name on it says Lisa Hawk",
+            "third": "Name on it says Stacy Hawq",
+            "fourth": "An award for employees"
+        },
 
+        {
+            "item": "Binder",
+            "first": "Label said Pro-Am",
+            "second": "Label has been ripped off",
+            "third": "Binder is empty",
+            "fourth": "Label said Anti-Am"
+        },
+
+        {
+            "item": "BookAnthrax",
+            "first": "A children's book",
+            "second": "Pornographic contents",
+            "third": "It is talking about Vollux 2",
+            "fourth": "Talking about a poison substance"
+        },
+
+        {
+            "item": "BookCase",
+            "first": "Cooking Books ",
+            "second": "Books are the same color",
+            "third": "Encyclopedias",
+            "fourth": "Books of Substance"
+        },
+
+        {
+            "item": "BoomBox",
+            "first": "Vollux 2 is an acute substance",
+            "second": "The boom box is stolen equipment",
+            "third": "A boombox with a CD in it",
+            "fourth": "Even with the slightest touch, the recipient could become effected by substance"
+        },
+
+        {
+            "item": "Broom",
+            "first": "Blood on the bottom of the broom",
+            "second": "Broom has been just used",
+            "third": "Fingerprints was on the broom",
+            "fourth": "Broom was broken"
+        },
+
+        {
+            "item": "CD",
+            "first": "A musical CD with a singer's picture on it",
+            "second": "Singer's name is Stacy Hawk",
+            "third": "CD was not there",
+            "fourth": "CD was present"
+        },
+
+        {
+            "item": "Clock",
+            "first": "An antique grandfather clock",
+            "second": "It is reading the time of 3:10",
+            "third": "The clock hands were moving",
+            "fourth": "It seems to be broken"
+        },
+
+        {
+            "item": "CouchBook",
+            "first": "Blood was on the book",
+            "second": "It talked about Canada",
+            "third": "People's name was written in it only",
+            "fourth": "It was someone's diary"
+        },
+
+        {
+            "item": "CupLook",
+            "first": "Blood was in the cup",
+            "second": "Cup was cracked",
+            "third": "Cup was drunk from",
+            "fourth": "Cup is beautiful..."
+        },
+
+        {
+            "item": "DadPic",
+            "first": "A man wearing a cap with the american flag",
+            "second": "Older man",
+            "third": "Goofy looking man",
+            "fourth": "A programmer"
+        },
+
+        {
+            "item": "Fork",
+            "first": "A fireplace fork recently been used",
+            "second": "The fork got blood on the handle",
+            "third": "The fork is fake",
+            "fourth": "Dusty fingerprints on the fork"
+        },
+
+        {
+            "item": "Globe",
+            "first": "Canada is circled on the globe",
+            "second": "Globe was broken",
+            "third": "Globe was hollow",
+            "fourth": "Globe has been tampered with"
+        },
+
+        {
+            "item": "Gun",
+            "first": "No fingerprints on the gun",
+            "second": "Fingerprints on the gun",
+            "third": "It is an eagle 275",
+            "fourth": "Gun located near left hand"
+        },
+
+        {
+            "item": "Head",
+            "first": "A strange, ancient golden head",
+            "second": "A head of Apollo",
+            "third": "A head made out of real gold",
+            "fourth": "Obtained in archaelogic dig"
+        },
+
+        {
+            "item": "Letter",
+            "first": "A speech from Theodore Roosevelt",
+            "second": "Theordore Roosevelt claims America is becoming a military industrial country",
+            "third": "After the quote the letter states even your own president speaks love of America",
+            "fourth": "After the quote the letter states even your own president speaks ill of America"
+        },
+
+        {
+            "item": "LogHolder",
+            "first": "Holder had wine on it",
+            "second": "Logs were used",
+            "third": "Logs were not used",
+            "fourth": "Holder had blood in it"
+        },
+
+        {
+            "item": "Log",
+            "first": "Unused log",
+            "second": "Burnt log",
+            "third": "Looked like log was used as a weapon",
+            "fourth": "Log is dried up"
+        },
+
+        {
+            "item": "Map",
+            "first": "A burnt Map of the Lakeside Mall",
+            "second": "The map was not burnt",
+            "third": "There are X marks on this map",
+            "fourth": "The map shows Mexico country"
+        },
+
+        {
+            "item": "Pick",
+            "first": "Was recently used to kill victim",
+            "second": "Had many fingerprints on it",
+            "third": "Was recently used in fireplace",
+            "fourth": "Had a Who engraved in it"
+        },
+
+        {
+            "item": "PictureLeft",
+            "first": "Victim is shown in picture",
+            "second": "A man is shown in picture",
+            "third": "A man is shown holding victim",
+            "fourth": "They appear to be in the desert"
+        },
+
+        {
+            "item": "PictureRight",
+            "first": "Victim is laughing in picture",
+            "second": "A man is laughing in picture",
+            "third": "They appear happy",
+            "fourth": "They appear to be in the desert"
+        },
+
+        {
+            "item": "RTPaper1",
+            "first": "Was recently used to kill victim",
+            "second": "Had many fingerprints on it",
+            "third": "general information about velocity",
+            "fourth": "general information about Italy"
+        },
+
+        {
+            "item": "RTPaper2",
+            "first": "general information about velocity",
+            "second": "general information about sales",
+            "third": "general information about space science",
+            "fourth": "general information about Italy"
+        },
+
+        {
+            "item": "Shovel",
+            "first": "Has been used recently",
+            "second": "Fingerprints on the handle",
+            "third": "Pan is dusty",
+            "fourth": "Pan is rusty"
+        },
+
+        {
+            "item": "Statue",
+            "first": "An ancient, authentic statue",
+            "second": "A stolen statue",
+            "third": "It looks like it is an archaelogic artifact",
+            "fourth": "A cemented statue"
+        },
+
+        {
+            "item": "Stone",
+            "first": "An authentic artifact",
+            "second": "An egyptian stone",
+            "third": "A inauthentic artifact",
+            "fourth": "A stolen artifact"
+        },
+
+        {
+            "item": "Ticket_Lisa",
+            "first": "Ticket with the victim's name on it",
+            "second": "Departure from Egypt",
+            "third": "Destination to America",
+            "fourth": "Departure from Canada"
+        },
+
+        {
+            "item": "Ticket_Fareed",
+            "first": "Ticket that belongs to someone named Fareed",
+            "second": "Departure from Egypt",
+            "third": "Destination to America",
+            "fourth": "Departure from Canada"
+        },
+
+        {
+            "item": "Tiger",
+            "first": "An artistic statue",
+            "second": "A fake statue",
+            "third": "An authentic artifact",
+            "fourth": "Statue is from Ohio"
+        },
+
+        {
+            "item": "WallPic",
+            "first": "A woman singing",
+            "second": "Picture was tampered with",
+            "third": "Victim is a fan of the singer",
+            "fourth": "Woman seen on another object in the room"
+        },
+
+        {
+            "item": "WineBottle",
+            "first": "Wine made in Italy 1842",
+            "second": "Company Wine Grapes Estate",
+            "third": "Fingerprints on the bottle",
+            "fourth": "Some of the wine was drunk"
+        },
+
+        {
+            "item": "WineGlassE",
+            "first": "Glass of wine doesn't seem to have fingerprints",
+            "second": "Empty glass knocked over",
+            "third": "No particular markings on the glass",
+            "fourth": "Glass cracked"
+        },
+
+        {
+            "item": "WineGlassF",
+            "first": "Glass of wine doesn't seem to have fingerprints",
+            "second": "Glass also doesn't seem to be drunken from",
+            "third": "No particular markings on the glass",
+            "fourth": "Glass smashed"
+        },
+
+        {
+            "item":"Dad1",
+            "first":"The owner of the phone seemed to had a fight with his/her father last night at dinner",
+            "second":"His/Her dad had a disagreement with him about someone named Fareed",
+            "third":"His/Her dad doesn't like Fareed and Fareed doesn't like the Dad's job",
+            "fourth":"His/Her dad job is a government job"
+        },
+
+        {
+            "item":"Dad2",
+            "first":"The dad said they were having a party right now",
+            "second":"The dad was going to invite the owner of the phone",
+            "third":"The dad wasn't going to invite the owner of the phone",
+            "fourth":"The sister said the dad and owner of phone should talk their problems out"
+        },
+
+        {
+            "item":"Fareed1",
+            "first":"The owner of the phone had a relationship with someone",
+            "second":"Fareed sent flowers to the owner of the phone",
+            "third":"Fareed sent letters to the owner of the phone",
+            "fourth":"Owner of the phone made a map where it will be good to distribute the gifts"
+        },
+
+        {
+            "item":"Fareed2",
+            "first":"'Love of my Life' send the owner of the phone tickets",
+            "second":"The owner listened to a CD",
+            "third":"'Love of my Life'  and owner met in Egypt",
+            "fourth":"'Love of my Life' is Fareed"
+        },
+
+        {
+            "item":"Fareed3",
+            "first":"Owner of phone wanted to talk to 'Love of Life'",
+            "second":"The owner's dad sent a text today saying he wants to work stuff out",
+            "third":"Love of Life wanted to talk to dad",
+            "fourth":"Love of Life didn't want owner to talk to dad"
+        },
+
+        {
+            "item":"Stacy1",
+            "first":"Stacy seemed to be an archaelogist",
+            "second":"Stacy went to Italy",
+            "third":"Stacy sent a CD",
+            "fourth":"Stacy seemed to be a singer on tour"
+        },
+
+        {
+            "item":"Stacy2",
+            "first":"Owner of phone met a guy named Fareed",
+            "second":"The owner mentions America is more like a military-industrial country",
+            "third":"Stacy mentions America fights in wars for the arms industry lobbyists",
+            "fourth":"Stacy is not interested"
+        }
+
+
+    ]
 }

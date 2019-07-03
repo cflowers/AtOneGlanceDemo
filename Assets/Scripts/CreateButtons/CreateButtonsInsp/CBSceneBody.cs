@@ -66,11 +66,9 @@ public class CBSceneBody : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-       // tb.GetComponent<TextBox>().textBool = true;
         item = new BodyItem();
-      //  this.item.beginText();
         this.item.loadImage();
-        //tb.GetComponent<DisplayText>().readLine = true;
+        //this.item.beginText();
         JsonBuffer jsonBuffer = new JsonBuffer();
         jsonBuffer.setToggleText("Body");  
         tb.GetComponent<DisplayText>().item = item;
