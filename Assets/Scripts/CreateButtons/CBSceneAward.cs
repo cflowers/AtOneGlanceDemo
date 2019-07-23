@@ -51,16 +51,10 @@ public class CBSceneAward : AbstractCBScene
 
     void lis_award_zoom()
     {
-       
         destroyButtons();
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
         bg.GetComponent<Background>().awardZm();
-        //d.done = false;
-        item = new AwardItem();
-        this.item.loadImage();
-        bg.GetComponent<DisplayText>().item = item;
-        bg.GetComponent<DisplayText>().popUpNow();
-        Inspection.setAward(true);
+        d.done = false;
     }
 
     void lis_back()

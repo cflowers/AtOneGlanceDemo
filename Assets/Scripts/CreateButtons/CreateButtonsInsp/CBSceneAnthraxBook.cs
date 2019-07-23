@@ -1,10 +1,10 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 
 public class CBSceneAnthraxBook : AbstractCBScene
@@ -57,11 +57,12 @@ public class CBSceneAnthraxBook : AbstractCBScene
 
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new BookAnthraxItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
-        //tb.GetComponent<DisplayText>().readLine = true;
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("BookAnthrax");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setAnthraxBook(true);

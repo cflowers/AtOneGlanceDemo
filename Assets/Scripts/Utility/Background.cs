@@ -110,7 +110,7 @@ public class Background : MonoBehaviour
         rawImageComp.texture = textures[WHOLE_ROOM];
         current = "WHOLE_ROOM";
         fire = GameObject.FindGameObjectWithTag("testTex");
-        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-88.0f, 82.0f);
+        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-5.0f, -40.0f);
         animCode = GetComponent<AnimationCode>();
         animCode.beginAnimation(fire.GetComponent<RawImage>(), 
             "textures/level1/animations/FireplaceSprites/AllRoomSprites");
@@ -174,7 +174,7 @@ public class Background : MonoBehaviour
         linkedList.AddLast(new CrimeTex(textures[FIREPLACE], "FIREPLACE"));
         rawImageComp.texture = textures[FIREPLACE];
         animCode = GetComponent<AnimationCode>();
-        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-7.0f, 3.0f);
+        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-7.0f, -34.0f);
         fireObjs.AddLast(new FireSheet(fire.GetComponent<RectTransform>().anchoredPosition, 
             "textures/level1/animations/FireplaceSprites/FireplaceFront"));
         animCode.beginAnimation(fire.GetComponent<RawImage>(), 
@@ -687,9 +687,10 @@ public class Background : MonoBehaviour
     {
         if (linkedList.Count > 1)
         {
+            Debug.Log("Got here in back");
             linkedList.RemoveLast();
             changeCurrent(linkedList.Last.Value.name);
-           // wr.boolHandle(linkedList.Last.Value.name);
+            wr.boolHandle(linkedList.Last.Value.name);
             Texture2D tex = linkedList.Last.Value.tex;
             rawImageComp.texture = tex;
             back_fire();
