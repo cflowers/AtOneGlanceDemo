@@ -19,7 +19,12 @@ public class DadItem2 : AbstractItems
 
     public override void loadImage()
     {
-        base.loadPic("Pics/goldPhone");
+        base.loadPic("Pics/goldPhone2");
 
+    }
+
+     public override string[] whichToggle(){
+        string[] list = {"1","3","4"};
+        return list;
     }
 }

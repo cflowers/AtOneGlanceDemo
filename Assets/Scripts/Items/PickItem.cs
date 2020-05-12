@@ -22,4 +22,8 @@ public class PickItem : AbstractItems
         base.loadPic("Pics/pick");
 
     }
+
+     public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

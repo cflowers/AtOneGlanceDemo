@@ -55,7 +55,7 @@ public class CBSceneShovel : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new ShovelItem();
     //    this.item.beginText();
         this.item.loadImage();

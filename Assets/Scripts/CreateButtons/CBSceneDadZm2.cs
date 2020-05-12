@@ -18,6 +18,7 @@ public class CBSceneDadZm2 : AbstractCBScene
 
     void getSceneButtons()
     {
+        Debug.Log("Got here too in getSceneButtons Message2");
         c.setCanvas("phonePopUp");
         GameObject hud_points = GameObject.FindGameObjectWithTag("points");
         PhoneCompositor pc = new PhoneCompositor(c, hud_points, d, "dadMess2Zm");

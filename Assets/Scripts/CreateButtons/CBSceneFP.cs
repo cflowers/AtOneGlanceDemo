@@ -38,8 +38,12 @@ public class CBSceneFP : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(36, 28);
+         if (Inspection.getFPPhone() == false ||Inspection.getFPPicLInsp() == false || Inspection.getFPPicRInsp() == false)
         c.createButtons("buttonFPUp", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_FPUp(); }),
           false, true);
+        else if (Inspection.getFPPhone() && Inspection.getFPPicLInsp() && Inspection.getFPPicRInsp())
+        c.createButtons("buttonFPUp", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_FPUp(); }),
+          false, false);
     }
 
     private void createFPDownButton()
@@ -47,8 +51,12 @@ public class CBSceneFP : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0f);
         dicAnchor["buttonPos"] = new Vector2(36, 22);
+        if(Inspection.getMapInsp() == false || Inspection.getLetterInsp() == false)
         c.createButtons("buttonFPDown", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_FPDown(); }),
           false, true);
+        else if(Inspection.getMapInsp() && Inspection.getLetterInsp())
+        c.createButtons("buttonFPDown", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_FPDown(); }),
+          false, false);
     }
 
     private void createFPRightButton()

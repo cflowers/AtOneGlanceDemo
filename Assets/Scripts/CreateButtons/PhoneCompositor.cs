@@ -78,7 +78,7 @@ using UnityEngine.UI;
             falsifyFareedPopUps();
             lis_back();
             c.getCanvas().GetComponent<Canvas>().sortingOrder = -1;//hide popup
-            NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());//save item to notebook
+            //NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());//save item to notebook
             updatePoints(howMany);
             animatePics(anim);
             resetTimer();
@@ -87,6 +87,10 @@ using UnityEngine.UI;
             misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, true);
             //open notebook
             Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
+            
+            //disables next and back page buttons
+            misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn"));
+             misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn_back"));
         }
 
         private void helper_lisDontWrite(int howMany)

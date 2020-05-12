@@ -60,6 +60,8 @@ public class CBSceneFPBoomBoxClose : AbstractCBScene
         item = new BoomBoxItem();
         this.item.beginText();
         this.item.loadImage();
+          JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("BoomBox");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setBoomBox(true);

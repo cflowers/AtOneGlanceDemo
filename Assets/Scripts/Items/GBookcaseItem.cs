@@ -22,4 +22,8 @@ public class GBookcaseItem : AbstractItems
         base.loadPic("Pics/bookCaseGreen");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

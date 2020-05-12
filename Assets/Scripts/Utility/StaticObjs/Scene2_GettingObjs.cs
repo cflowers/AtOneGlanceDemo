@@ -111,6 +111,12 @@ using UnityEngine;
             get { return input; }
             set { input = value; }
         }
+
+           public GameObject Hud_Points
+        {
+            get { return hud_points; }
+            set { hud_points = value; }
+        }
      
 	}
 

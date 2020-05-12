@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-
+using System.Collections.Generic;
 
 public class ListenerNotebook : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class ListenerNotebook : MonoBehaviour
     bool changed;
     Misc misc = new Misc();
     GameObject notebookText;
-
+    GameObject hud_points;
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -32,6 +32,7 @@ public class ListenerNotebook : MonoBehaviour
             noteImg = Scene_GettingObjs.getObjs().Notebook.GetComponentInChildren<RawImage>();
             changed = false;
             notebookText = GameObject.FindGameObjectWithTag("notebook_text");
+              hud_points = GameObject.FindGameObjectWithTag("points");
         }
     }
 
@@ -39,6 +40,9 @@ public class ListenerNotebook : MonoBehaviour
     //open notebook, start on the first page
     public void open_notebook()
     {
+         //enables next and back page buttons
+            misc._ableButtons(true, GameObject.FindGameObjectWithTag("turn"));
+             misc._ableButtons(true, GameObject.FindGameObjectWithTag("turn_back"));
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
         if (NotebookInfo.getNotebook().getFirstItemArr() != null)
         {
@@ -68,31 +72,75 @@ public class ListenerNotebook : MonoBehaviour
         //save item to NotebookInfo
         GameObject notebookToggle = Scene_GettingObjs.getObjs().NotebookToggle;
         Toggle[] toggles = notebookToggle.GetComponentsInChildren<Toggle>();
-        Debug.Log("Toggle Length:" + toggles.Length);
         notebookText.GetComponent<Text>().text = "";
+        int index = 0;
+        bool write = Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getWrite();
+        if(!write){
+             this.updatePoints(-10);
+        }
+
+         Debug.Log(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.whichToggle());
+         List<string> list = new List<string>(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.whichToggle());
+         
         foreach (Toggle toggle in toggles)
         {
+            index = index + 1;
             if (toggle.isOn)
+            {    
+                Debug.Log("Toggled" + index);
+                notebookText.GetComponent<Text>().text += toggle.GetComponentInChildren<Text>().text + "\n";
+                //loop through the list and remove items if checked off
+                foreach(string correctToggle in list){ 
+                  
+                    if(correctToggle.Equals(""+index)){
+                        Debug.Log("CorrectToggle and toggled" + correctToggle);
+                        this.updatePoints(1);
+                        list.Remove(correctToggle);
+                        break;
+                    }
+
+                    else if(!correctToggle.Equals(""+index)){
+                        Debug.Log("InCorrectToggle and toggled" + correctToggle);
+                        this.updatePoints(-1);
+                          
+                        break;
+                    }
+                }
+               
+            }
+
+            else if (!toggle.isOn)
             {
-                Debug.Log("Text:" + toggle.GetComponentInChildren<Text>().text);
-                notebookText.GetComponent<Text>().text +=
-                      toggle.GetComponentInChildren<Text>().text + "\n";
-                //either make a new JsonItem thing to hold text that user checked off
-                //or try to use the ItemFactory class where you will set the ItemText
-                //except having it presetted
+                Debug.Log("Not toggled");
+                foreach(string correctToggle in list){
+                    
+                    if(correctToggle.Equals(""+index)){
+                        Debug.Log("CorrectToggle and not toggled" + correctToggle);
+                        this.updatePoints(-1);
+                      
+                        break;
+                    }
+                }
+               
             }
         }
 
-        Debug.Log("Object:" + Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getPic());
+        
         Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.setItemDesc(notebookText.GetComponent<Text>().text);
         //save item to notebook
         NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item);
         //disable toggles
         misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, false);
         notebookText.GetComponent<Text>().enabled = true;
-        Debug.Log("Pages write:" + NotebookInfo.getNotebook().getList().Count);
     }
 
+  private void updatePoints(int howMany)
+        {
+            int points = PlayerInfo.Points;
+            PlayerInfo.Points = points + howMany;
+            hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+             Debug.Log("POINTS" + PlayerInfo.Points);
+        }
     //close notebook
     public void close_notebook()
     {
@@ -114,7 +162,7 @@ public class ListenerNotebook : MonoBehaviour
             index++;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
-                resizeTextItems();
+                //resizeTextItems();
                 notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }
@@ -130,7 +178,7 @@ public class ListenerNotebook : MonoBehaviour
             index--;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
-                resizeTextItems();
+                //resizeTextItems();
                 notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }

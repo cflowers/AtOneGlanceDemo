@@ -102,6 +102,7 @@ public class Background : MonoBehaviour
     const int PURPLEPH_FAREED_ZM3 = 75;
     const int ANTHRAX_BOOK = 76;
     const int GUN = 77;
+    const int TICKET_F = 78;
     string current = "";
 
     void Awake()
@@ -501,6 +502,13 @@ public class Background : MonoBehaviour
     {
         linkedList.AddLast(new CrimeTex(textures[TICKET], "TICKET"));
         rawImageComp.texture = textures[TICKET];
+        wr.boolHandle(linkedList.Last.Value.name);
+    }
+
+     public void ticket2()
+    {
+        linkedList.AddLast(new CrimeTex(textures[TICKET_F], "TICKET_F"));
+        rawImageComp.texture = textures[TICKET_F];
         wr.boolHandle(linkedList.Last.Value.name);
     }
 

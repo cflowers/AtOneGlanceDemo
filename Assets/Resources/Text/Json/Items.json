@@ -90,7 +90,7 @@
         {
             "item": "CouchBook",
             "first": "Blood was on the book",
-            "second": "It talked about Canada",
+            "second": "It talked about Ancient Egypt",
             "third": "People's name was written in it only",
             "fourth": "It was someone's diary"
         },
@@ -155,7 +155,7 @@
             "item": "LogHolder",
             "first": "Holder had wine on it",
             "second": "Logs were used",
-            "third": "Logs were not used",
+            "third": "Logs were used as a weapon",
             "fourth": "Holder had blood in it"
         },
 

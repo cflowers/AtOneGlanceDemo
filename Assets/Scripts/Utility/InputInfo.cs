@@ -19,6 +19,7 @@ public class InputInfo : MonoBehaviour {
 	void Start () {
         map.fillPanelMap();
         keys = new List<string>(map.Map.Keys);
+        Debug.Log(keys);
         sendInfo = Scene2_GettingObjs.getObjs().Screen.GetComponent<SendInfo>();
         suspectPic = GameObject.FindGameObjectWithTag("suspectPic").GetComponent<RawImage>();
         //load names from dat file
@@ -71,8 +72,10 @@ public class InputInfo : MonoBehaviour {
 
     bool validNameAlreadyInputted(string name, bool valid)
     {
+        
          foreach (string key in keys)
          {
+             Debug.Log(key);
              if (name == key && map.Map[key].Entered){
                  valid = false;
                  break;

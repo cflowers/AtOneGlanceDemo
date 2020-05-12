@@ -22,4 +22,9 @@ public class WineBottleItem : AbstractItems
         base.loadPic("Pics/winebottle");
 
     }
+
+      public override void setItemDesc(string itemDesc)
+    {
+        base.setItemDesc(itemDesc);
+    }
 }

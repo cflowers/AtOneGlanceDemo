@@ -31,8 +31,12 @@ public class ListenerSolve : MonoBehaviour {
 
     public void openSolveCanvas()
     {
+        if(Inspection.getEnvelopeInsp() && Inspection.getGunInsp() && Inspection.getMapInsp() && Inspection.getLetterInsp() &&
+        Inspection.getFPPicLInsp() && Inspection.getFPPicRInsp() && Inspection.getFPPhone() && LapTopInfo.Dat.NameList.size() ==4)
+        {
         GameObject solveCanvas = GameObject.FindGameObjectWithTag("solvePanel");
         solveCanvas.GetComponent<Canvas>().sortingOrder = 1;
+        }
     }
 
     public void who()

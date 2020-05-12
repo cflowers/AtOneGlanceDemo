@@ -22,4 +22,9 @@ public class CDItem : AbstractItems
         base.loadPic("Pics/couchcd");
 
     }
+
+    public override string[] whichToggle(){
+    string[] list = {"1","2","4"};
+        return list;
+    }
 }

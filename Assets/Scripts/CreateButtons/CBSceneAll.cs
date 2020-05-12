@@ -75,8 +75,12 @@ using UnityEngine.Events;
             dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
             dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
             dicAnchor["buttonPos"] = new Vector2(45, -207);
+             if (Inspection.getWineBottleInsp() == false || Inspection.getWineGlassEInsp()== false || Inspection.getWineGlassFInsp() == false)
             c.createButtons("buttonWG", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_table(); }),
              false, true);
+            else if (Inspection.getWineBottleInsp() && Inspection.getWineGlassEInsp() && Inspection.getWineGlassFInsp())
+            c.createButtons("buttonWG", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_table(); }),
+             false, false);
         }
 
 
@@ -85,8 +89,12 @@ using UnityEngine.Events;
             dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
             dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
             dicAnchor["buttonPos"] = new Vector2(-111, -263);
+             if ((Inspection.getBodyInsp() == false) || Inspection.getHandInsp() == false || Inspection.getGunInsp() == false)
             c.createButtons("buttonBody", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_body(); }),
              false, true);
+            else if (Inspection.getBodyInsp() && Inspection.getHandInsp() && Inspection.getGunInsp())
+             c.createButtons("buttonBody", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_body(); }),
+             false, false);
         }
 
         private void createCouchButton()
@@ -94,8 +102,12 @@ using UnityEngine.Events;
             dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
             dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
             dicAnchor["buttonPos"] = new Vector2(162, -89);
+            if ((Inspection.getCouchBook() == false) || Inspection.getCouchCD() == false)
             c.createButtons("buttonCouch", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_couch(); }),
              false, true);
+            else  if (Inspection.getCouchBook() && Inspection.getCouchCD())
+            c.createButtons("buttonCouch", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_couch(); }),
+             false, false);
         }
 
         private void createFloorNearFPButton()

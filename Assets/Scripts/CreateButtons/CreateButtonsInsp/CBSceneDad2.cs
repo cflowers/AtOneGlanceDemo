@@ -55,6 +55,7 @@ public class CBSceneDad2 : AbstractCBScene
 
     public void lis_zoom()
     {
+        Debug.Log("Got here in lis_zoom for Dad");
         destroyButtons();
         GameObject img = GameObject.FindGameObjectWithTag("dadMess2Zm");
         //GameObject bg = GameObject.FindGameObjectWithTag("canvas");

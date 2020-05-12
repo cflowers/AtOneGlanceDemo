@@ -34,8 +34,12 @@ public class CBSceneFPDown : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(248, -104);
+        if (!(Inspection.getLetterInsp()))
         c.createButtons("buttonLetter", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetLetter(); }),
           false, true);
+         else if (Inspection.getLetterInsp())
+        c.createButtons("buttonLetter", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetLetter(); }),
+          false, false);
     }
 
     private void createInspectMapButton()
@@ -43,8 +47,12 @@ public class CBSceneFPDown : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-222, -160);
+         if (!(Inspection.getMapInsp()))
         c.createButtons("buttonMap", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetMap(); }),
           false, true);
+        else if (Inspection.getMapInsp())
+        c.createButtons("buttonMap", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetMap(); }),
+          false, false);
     }
 
     private void createBackButton()

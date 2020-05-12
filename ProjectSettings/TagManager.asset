@@ -88,6 +88,9 @@ TagManager:
   - suspectScreen
   - inputSuspect
   - notebookToggle
+  - turn
+  - turn_back
+  - points2
   layers:
   - Default
   - TransparentFX

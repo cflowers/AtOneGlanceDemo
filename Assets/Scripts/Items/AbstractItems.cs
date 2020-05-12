@@ -13,6 +13,7 @@ public abstract class AbstractItems : ItemsFactory
     string[] lines;
     public string itemDesc;
     
+    private string[] list = {};
 
     public virtual void beginText() { }
 
@@ -23,6 +24,8 @@ public abstract class AbstractItems : ItemsFactory
     public virtual void setItemDesc(string itemDesc) { this.itemDesc = itemDesc; }
 
     public string getItemDesc() { return this.itemDesc; }
+
+    public virtual string[] whichToggle() { return list;}
 
     public void begin(string path) {
         loadTextFile(path);
@@ -66,6 +69,10 @@ public abstract class AbstractItems : ItemsFactory
     public Texture2D getPic()
     {
         return img;
+    }
+
+    public bool hasBeenSeen(){
+        return false;
     }
   
 }

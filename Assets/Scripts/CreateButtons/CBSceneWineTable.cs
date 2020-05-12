@@ -36,8 +36,12 @@ public class CBSceneWineTable : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-90, 68);
+         if (!(Inspection.getWineBottleInsp()))
         c.createButtons("buttonWineBottle", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineBottle(); }),
           false, true);
+          else if (Inspection.getWineBottleInsp())
+        c.createButtons("buttonWineBottle", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineBottle(); }),
+          false,false);
     }
 
     private void createFullGlassButton()
@@ -45,7 +49,11 @@ public class CBSceneWineTable : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(32, -62);
+          if (!(Inspection.getWineGlassFInsp()))
         c.createButtons("buttonGlassF", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineFullG(); }),
+          false, true);
+         else if (Inspection.getWineGlassFInsp())
+             c.createButtons("buttonGlassF", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineFullG(); }),
           false, true);
     }
 
@@ -54,8 +62,12 @@ public class CBSceneWineTable : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0f);
         dicAnchor["buttonPos"] = new Vector2(130, 180);
+         if (!(Inspection.getWineGlassEInsp()))
         c.createButtons("buttonGlassE", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineEmptyG(); }),
           false, true);
+        else if ((Inspection.getWineGlassEInsp()))
+        c.createButtons("buttonGlassE", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_WineEmptyG(); }),
+          false, false);
     }
 
     private void createBackButton()

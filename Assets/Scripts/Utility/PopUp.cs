@@ -85,6 +85,7 @@ public class PopUp : MonoBehaviour
 
     void helperReset(string prevMess)
     {
+        Debug.Log("This happened");
         GameObject write = GameObject.FindGameObjectWithTag("writeBtn");
         GameObject dontWrite = GameObject.FindGameObjectWithTag("dontWriteBtn");
         Destroy(write);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872734, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2841,9 +2841,9 @@ MonoBehaviour:
   textures:
   - {fileID: 2800000, guid: 7eed57bab0605334fbffe0360301ec9b, type: 3}
   - {fileID: 2800000, guid: a31245f9fdb654c499b99da03915ae63, type: 3}
-  - {fileID: 2800000, guid: 5853c6742c3e23a4abc93b5d0d826cf7, type: 3}
+  - {fileID: 2800000, guid: 7feefe118b765f642a1ef733f83b08ef, type: 3}
   - {fileID: 2800000, guid: 5cab95514adfc224ebfb7d8f4bcdcb2d, type: 3}
-  - {fileID: 2800000, guid: aa846ffc43048b845921b28298d24476, type: 3}
+  - {fileID: 2800000, guid: bc7cabf9a4903b642b4bbe8d1b714d67, type: 3}
   - {fileID: 2800000, guid: 11ba85141b66ae74b9b335e7a9e33951, type: 3}
   - {fileID: 2800000, guid: 125a6d0109e996240b3882831af493e4, type: 3}
   - {fileID: 2800000, guid: 6565a0b6353863e43ba57bb3c73f393d, type: 3}
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 067a90198e9a3854bae7821b607b2341, type: 3}
   - {fileID: 2800000, guid: e6c0e01d064654e40b0c54ef903e0aba, type: 3}
   - {fileID: 2800000, guid: 116309135dbc3ca4a9dfd5bf3aa89a93, type: 3}
-  - {fileID: 2800000, guid: 85953178c404379439506c8213ddebd9, type: 3}
+  - {fileID: 2800000, guid: 8cc7493940d168d48bea92a50cfd7322, type: 3}
   - {fileID: 2800000, guid: cbc66126d2563dd41ad2f7d2a491c872, type: 3}
   - {fileID: 2800000, guid: f3ed46dd3fb7e4c4f8d1c3a4f030b4a0, type: 3}
   - {fileID: 2800000, guid: b18838697d341774eb1709ac39a60d54, type: 3}
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 016f9cfdab1aa0b4f84832ae1db37017, type: 3}
   - {fileID: 2800000, guid: 9bfcace0142d3e646aa9921283d5927e, type: 3}
   - {fileID: 2800000, guid: 927f8eb3fd854a84fa8520886077aa96, type: 3}
-  - {fileID: 2800000, guid: 02332c432ed9eaa4eb47a4f7167af828, type: 3}
+  - {fileID: 2800000, guid: 388c278a14cdf194a8b53d5b6af0a091, type: 3}
   - {fileID: 2800000, guid: ddc0482012c53b24a9f1351ee9b90dd8, type: 3}
   - {fileID: 2800000, guid: 4b4cb0f4e1346384bb703fcbeb378c2b, type: 3}
   - {fileID: 2800000, guid: 9356a0b9a10eb4a4ca547e5c74eac2de, type: 3}
@@ -2915,8 +2915,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ea2e7fb6ecddddd4aac0a2b6b1c282e9, type: 3}
   - {fileID: 2800000, guid: ea2e7fb6ecddddd4aac0a2b6b1c282e9, type: 3}
   - {fileID: 2800000, guid: ea2e7fb6ecddddd4aac0a2b6b1c282e9, type: 3}
-  - {fileID: 2800000, guid: 99d9f9b3f9310084e82c54f5aad3521b, type: 3}
+  - {fileID: 2800000, guid: 6f14b16b82c247b409a8d2aaa2b9b02f, type: 3}
   - {fileID: 2800000, guid: bfcdf081d5550984a9ea7685cbf43b42, type: 3}
+  - {fileID: 2800000, guid: fd9d93ed574695e469954eed420e38cd, type: 3}
   fire: {fileID: 0}
 --- !u!114 &360513187
 MonoBehaviour:
@@ -4396,7 +4397,7 @@ GameObject:
   - component: {fileID: 525410291}
   m_Layer: 5
   m_Name: turn
-  m_TagString: Untagged
+  m_TagString: turn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5558,7 +5559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 679, y: 154.00005}
+  m_AnchoredPosition: {x: 654, y: 154.00005}
   m_SizeDelta: {x: 607, y: 212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670045776
@@ -8031,7 +8032,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1486015754}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9910873
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8966,7 +8967,7 @@ GameObject:
   - component: {fileID: 1309382491}
   m_Layer: 5
   m_Name: turn_back
-  m_TagString: Untagged
+  m_TagString: turn_back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12643,7 +12644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277, y: -2490.5}
+  m_AnchoredPosition: {x: 277, y: -8090.5}
   m_SizeDelta: {x: 423, y: 279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1888769786
@@ -14806,7 +14807,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 92258088}
   m_HandleRect: {fileID: 92258087}
   m_Direction: 2
-  m_Value: 0.9999986
+  m_Value: 0.9999988
   m_Size: 0.7924528
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14883,6 +14884,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: -28226}
+  m_AnchoredPosition: {x: -3, y: -40420}
   m_SizeDelta: {x: 182, y: 439}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -22,4 +22,8 @@ public class BBookcaseItem : AbstractItems
         base.loadPic("Pics/bookCaseBlue");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

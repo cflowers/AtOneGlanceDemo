@@ -60,7 +60,7 @@ public class CBSceneTicket : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       //tb.GetComponent<TextBox>().textBool = true;
         item = new TicketItem();
         //this.item.beginText();
         this.item.loadImage();

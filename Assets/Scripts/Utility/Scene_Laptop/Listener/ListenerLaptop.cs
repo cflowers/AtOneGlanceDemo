@@ -15,6 +15,8 @@ public class ListenerLaptop : MonoBehaviour
     GameObject suspect;
     GameObject recSuspect;
     GameObject buttonsInter;
+
+    GameObject hud_points;
     InputField input;
     LapTopLoadHelper helper;
     Misc misc;
@@ -37,7 +39,8 @@ public class ListenerLaptop : MonoBehaviour
             buttonsInter = Scene2_GettingObjs.getObjs().ButtonsInter;
             input = Scene2_GettingObjs.getObjs().Input.GetComponent<InputField>();
             helper = new LapTopLoadHelper();
-            misc = new Misc();
+            misc = new Misc();  
+           GameObject.FindGameObjectWithTag("points2").GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
             //if this is not a new game
             helper.load(first);
             first = false;

@@ -53,6 +53,7 @@ public class Inspection {
     static bool fareedMess2 = false;
     static bool fareedMess3 = false;
     static bool anthraxBook = false;
+    static bool ticket2 = false;
 
    
     public static void setEnvelopeInsp(bool envelopeInsp)
@@ -390,6 +391,17 @@ public class Inspection {
     {
         return Inspection.ticket;
     }
+
+     public static void setTicket2(bool ticket2)
+    {
+        Inspection.ticket2 = ticket2;
+    }
+
+    public static bool getTicket2()
+    {
+        return Inspection.ticket2;
+    }
+
 
     public static void setStone(bool stone)
     {
