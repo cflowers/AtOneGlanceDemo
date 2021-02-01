@@ -68,13 +68,10 @@ public class Hover_Laptop : EventTrigger
 
     void helper_left(PointerEventData eventData)
     {
-        Debug.Log("Event Data:" + eventData.pointerCurrentRaycast.gameObject.tag);
-        Debug.Log("Items Count:" + items.Count);
+     
         selectNote(eventData);
         selectPlacedNote(eventData);
-        //replacePlacedNote(eventData);
         placeNote(eventData);
-       // errorPlacement(eventData);
         destroy(eventData);
     }
 
@@ -109,7 +106,6 @@ public class Hover_Laptop : EventTrigger
     {
         if (eventData.pointerCurrentRaycast.gameObject.tag == "donePic" && items.Count == 1)
         {
-            Debug.Log("DO YOU WISH TO REPLACE IMAGE WITH NEW IMAGE? TOO BAD");
             nothingOccured = false;
         }
     }
@@ -124,7 +120,6 @@ public class Hover_Laptop : EventTrigger
             createCloseBtn();
             buttonsInter.GetComponent<ButtonsInteraction>().onPage = true;
             items.First.Value.tag = "donePic";
-            // Debug.Log("Set:" + LapTopInfo.listSaveNotes.size());
             destroyItems();
             nothingOccured = false;
         }
@@ -134,7 +129,6 @@ public class Hover_Laptop : EventTrigger
     {
         if (eventData.pointerCurrentRaycast.gameObject.tag == "node" && items.Count == 0)
         {
-            Debug.Log("Think of something");
             nothingOccured = false;
         }
     }
@@ -186,7 +180,6 @@ public class Hover_Laptop : EventTrigger
                    items.First.Value.GetComponent<RawImage>().texture.name)
         {
             
-            Debug.Log("ListSaveNote:" + WhichPanel.Panel.tag);
             LoadNotesSave ls = new LoadNotesSave(WhichPanel.Panel.tag,
                 NotebookInfo.getNotebook().getArr()[i], x, y);
             LapTopInfo.ListSaveNotes.Add(ls);
@@ -208,7 +201,7 @@ public class Hover_Laptop : EventTrigger
 
     //goes with checkTagTex method
     void loopNoteBookInfo(Texture tex)
-    {  Debug.Log("Length Tex1:" + NotebookInfo.getNotebook().getArr().Length);
+    {  
         for (int i = 0; i < NotebookInfo.getNotebook().getList().Count; i++)
             setClueZmPicDesc(i, tex);
     }
@@ -216,8 +209,7 @@ public class Hover_Laptop : EventTrigger
     //goes with loopNoteBookInfo method
     void setClueZmPicDesc(int i, Texture tex)
     {
-        Debug.Log("Tex1:" + tex.name);
-          Debug.Log("Tex2:" + NotebookInfo.getNotebook().getArr()[i].getPic().name);
+        
        if (NotebookInfo.getNotebook().getArr()[i].getPic().name == tex.name)
            {
              clueZmPic.texture = NotebookInfo.getNotebook().getArr()[i].getPic();
@@ -241,19 +233,15 @@ public class Hover_Laptop : EventTrigger
 
     void removeNote(GameObject go)
     {
-        Debug.Log("Size in saved notes:" + LapTopInfo.ListSaveNotes.size());
 
         for (int i = 0; i < LapTopInfo.ListSaveNotes.size(); i++)
         {
-            Debug.Log(LapTopInfo.ListSaveNotes.get(i).Item.getPic() + "," + go.GetComponentInChildren<RawImage>().texture);
             if (LapTopInfo.ListSaveNotes.get(i).Item.getPic() == go.GetComponentInChildren<RawImage>().texture)
             {
-                Debug.Log("Note can be removed:" + LapTopInfo.ListSaveNotes.get(i).Item.getPic());
                 LapTopInfo.ListSaveNotes.RemoveObj(LapTopInfo.ListSaveNotes.get(i));
                 break;
             }
         }
-        Debug.Log("Size in saved notes:" + LapTopInfo.ListSaveNotes.size());
     }
 
     void destroyItems()

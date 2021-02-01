@@ -57,7 +57,7 @@ public class CBSceneWineBottle : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+      //  tb.GetComponent<TextBox>().textBool = true;
         item = new WineBottleItem();
       //  this.item.beginText();
         this.item.loadImage();

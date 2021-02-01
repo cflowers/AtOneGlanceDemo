@@ -19,12 +19,14 @@ public class PlayerInfo: MonoBehaviour {
     private static bool newGame = true;
     private static string name = null;
 
+    private static int badges = 5;
+
     void Awake()
     {
         assignInstance();   
     }
 
-    void assignInstance()
+    public void assignInstance()
     {
         if (m_instance != null && m_instance != this)
             Destroy(this);
@@ -55,4 +57,6 @@ public class PlayerInfo: MonoBehaviour {
         get { return PlayerInfo.newGame; }
         set { PlayerInfo.newGame = value; }
     }
+
+    public static int Badges { get => badges; set => badges = value; }
 }

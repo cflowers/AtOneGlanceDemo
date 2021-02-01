@@ -22,4 +22,9 @@ public class BookAnthraxItem : AbstractItems
         base.loadPic("Pics/anthraxBook");
 
     }
+
+     public override string[] whichToggle(){
+    string[] list = {"3","4"};
+        return list;
+    }
 }

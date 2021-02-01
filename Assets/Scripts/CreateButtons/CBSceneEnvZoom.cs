@@ -35,23 +35,13 @@ public class CBSceneEnvZoom : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-58, -109);
-        // CreateButtonsContents cont = new CreateButtonsContents();
-        // cont.Name = "buttonEnvCont";
-        // cont.Parent =c.getCanvas().GetComponent<Canvas>().transform;
-        // cont.DicAnchors = dicAnchor;
-        // cont.Lis = new UnityAction(delegate {lis_envelopeContents();});
-        // cont.ShowButton = false;
-        // cont.Interact = true;
-        // cont.Inspection = Inspection.getEnvelopeInsp();
-        // buttonsDic["map"]= cont;
-        Debug.Log("Inspect:" + Inspection.getEnvelopeInsp());
+        
          if (!(Inspection.getEnvelopeInsp()))
         c.createButtons("buttonEnvCont",c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate {lis_envelopeContents();}),
          false, true);
            else if (Inspection.getEnvelopeInsp())
             c.createButtons("buttonEnvCont", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_envelopeContents(); }),
           false, false);
-      //  c.createButtons(buttonsDic);
     }
 
     void createBackButton()
@@ -59,16 +49,7 @@ public class CBSceneEnvZoom : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0f, 0f);
         dicAnchor["anchorMax"] = new Vector2(0f, 0f);
         dicAnchor["buttonPos"] = new Vector2(90, 70);
-        // CreateButtonsContents cont = new CreateButtonsContents();
-        // cont.Name = "buttonBack";
-        // cont.Parent = c.getCanvas().GetComponent<Canvas>().transform;
-        // cont.DicAnchors = dicAnchor;
-        // cont.Lis = new UnityAction(delegate { lis_back(); });
-        // cont.ShowButton = true;
-        // cont.Interact = true;
-        // cont.Inspection = false;
-        // buttonsDic["map"] = cont;
-        // c.createButtons(buttonsDic);
+      
         c.createButtons("buttonBack", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_back(); }),
          true, true);
     }

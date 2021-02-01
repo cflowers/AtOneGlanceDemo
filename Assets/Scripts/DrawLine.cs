@@ -35,7 +35,6 @@ public class DrawLine : MonoBehaviour
         {
             if (hit.transform.tag == "node")
             {
-                Debug.Log("Hit confirmed");
                 addPoint(hit.transform);
                 connect();
 

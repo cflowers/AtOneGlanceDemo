@@ -13,12 +13,19 @@ public class InputInfo : MonoBehaviour {
     public bool isSuspectEnter = false;
     public CFLinkedList<string> nameList;
     public FillPanelMap map = new FillPanelMap();
+
+    Dictionary<string, SuspectGameObject> bufferMap = new Dictionary<string, SuspectGameObject>();
+
     public List<string> keys;
 
 	
 	void Start () {
         map.fillPanelMap();
         keys = new List<string>(map.Map.Keys);
+        Debug.Log("Map:" + map.Map.Count);
+        this.bufferMap = map.Map;
+        foreach(string s in keys)
+        Debug.Log(s);
         sendInfo = Scene2_GettingObjs.getObjs().Screen.GetComponent<SendInfo>();
         suspectPic = GameObject.FindGameObjectWithTag("suspectPic").GetComponent<RawImage>();
         //load names from dat file
@@ -45,9 +52,11 @@ public class InputInfo : MonoBehaviour {
 
     public bool checkInfo()
     {
-        string name = sendInfo.getName();
+        string name = sendInfo.getName().ToUpper().Trim();
+        Debug.Log(name);
         bool valid = true;
         valid = invalidInputName(name, valid) && validNameAlreadyInputted(name,valid);
+
         if(valid)
             nameList.Add(name);
         return valid;
@@ -57,10 +66,12 @@ public class InputInfo : MonoBehaviour {
     {
        foreach (string key in keys)
        {
+          
+          
            if (name != key)
                valid = false;
-           else if (name == key)
-           {
+           else if (name.Equals(key))
+           { Debug.Log("Key:" + key);
                valid = true;
                break;
            }
@@ -71,9 +82,12 @@ public class InputInfo : MonoBehaviour {
 
     bool validNameAlreadyInputted(string name, bool valid)
     {
-         foreach (string key in keys)
+        for(int i =0;i<nameList.size();i++)
+        // foreach (string key in nameList)
          {
-             if (name == key && map.Map[key].Entered){
+           
+             if (name.Equals(nameList.get(i))){
+                 Debug.Log("Key1:" + nameList.get(i));
                  valid = false;
                  break;
              }
@@ -85,10 +99,11 @@ public class InputInfo : MonoBehaviour {
     void setPic() {
         foreach (string key in keys)
         {
-            if (sendInfo.getName().ToUpper() == key)
+            if (sendInfo.getName().ToUpper().Trim() == key)
             {
-                suspectPic.texture = map.Map[key].getImg();
-                map.Map[key].Entered = true;
+                Debug.Log("What:" + this.bufferMap.Count);
+                suspectPic.texture = this.bufferMap[key].getImg();
+                this.bufferMap[key].Entered = true;
                 //done = false;
                 isButtonHit = false;
                 break;
@@ -102,16 +117,15 @@ public class InputInfo : MonoBehaviour {
     {
         foreach (string key in keys)
         {
-            if (sendInfo.getName().ToUpper() == key)
+            if (sendInfo.getName().ToUpper().Trim() == key)
             {
-                Image btnImg = GameObject.FindGameObjectWithTag(map.Map[key].getBtnName()).GetComponent<Image>();
-                map.Map[key].BtnImg = btnImg;
-                Button btn = GameObject.FindGameObjectWithTag(map.Map[key].getBtnName()).GetComponent<Button>();
-                map.Map[key].Btn = btn;
-                Debug.Log("Map:" + map.Map[key].Btn);
-                Debug.Log("Map:" + map.Map[key].BtnImg);
-                map.Map[key].Btn.interactable = true;
-                map.Map[key].BtnImg.enabled = true;
+                Image btnImg = GameObject.FindGameObjectWithTag(this.bufferMap[key].getBtnName()).GetComponent<Image>();
+                this.bufferMap[key].BtnImg = btnImg;
+                Button btn = GameObject.FindGameObjectWithTag(this.bufferMap[key].getBtnName()).GetComponent<Button>();
+               this.bufferMap[key].Btn = btn;
+               
+                this.bufferMap[key].Btn.interactable = true;
+                this.bufferMap[key].BtnImg.enabled = true;
                 break;
             }
         }

@@ -22,4 +22,8 @@ public class GlobeItem : AbstractItems
         base.loadPic("Pics/globe");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

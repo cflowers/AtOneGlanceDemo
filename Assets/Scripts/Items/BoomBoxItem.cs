@@ -22,4 +22,9 @@ public class BoomBoxItem : AbstractItems
         base.loadPic("Pics/boombox");
 
     }
+
+    public override string[] whichToggle(){
+    string[] list = {"1","3","4"};
+        return list;
+    }
 }

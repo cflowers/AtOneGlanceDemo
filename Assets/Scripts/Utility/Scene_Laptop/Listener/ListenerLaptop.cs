@@ -15,6 +15,8 @@ public class ListenerLaptop : MonoBehaviour
     GameObject suspect;
     GameObject recSuspect;
     GameObject buttonsInter;
+
+    GameObject hud_points;
     InputField input;
     LapTopLoadHelper helper;
     Misc misc;
@@ -23,10 +25,9 @@ public class ListenerLaptop : MonoBehaviour
     void Start()
     {
        
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().name=="LapTop")
         {
-            Debug.Log("Scene 2:" + NotebookInfo.getNotebook().getArr()[0]);
-             Debug.Log("Scene 2:" + NotebookInfo.getNotebook().getList().Count);
+           
             bg = Scene2_GettingObjs.getObjs().Canvas;
             keyboardButton = Scene2_GettingObjs.getObjs().KeyboardButton;
             winIcon = Scene2_GettingObjs.getObjs().WinIcon;
@@ -37,8 +38,7 @@ public class ListenerLaptop : MonoBehaviour
             buttonsInter = Scene2_GettingObjs.getObjs().ButtonsInter;
             input = Scene2_GettingObjs.getObjs().Input.GetComponent<InputField>();
             helper = new LapTopLoadHelper();
-            misc = new Misc();
-            //if this is not a new game
+            misc = new Misc();  
             helper.load(first);
             first = false;
         }
@@ -68,8 +68,6 @@ public class ListenerLaptop : MonoBehaviour
         winIcon.GetComponent<Button>().enabled = false;
         winIcon.GetComponent<Image>().enabled = false;
         winIcon.GetComponentInChildren<Text>().enabled = false;
-        //Debug.Break();
-       // loadSuspectButtons();
     }
 
     void loadSuspectButtons()
@@ -77,20 +75,12 @@ public class ListenerLaptop : MonoBehaviour
         //loop through LapTopInfoEnableButtons list and enable buttons
         if (LapTopInfo.Dat.NewGame && LapTopInfo.Dat.NameList.size() > 0)
         {
-            Debug.Log("Names:" + LapTopInfo.Dat.NameList.size());
             for (int i = 0; i < LapTopInfo.Dat.NameList.size(); i++)
             {
-                Debug.Log("Hmmm...");
-                Debug.Break();
                 SendInfo sendInfo = screen.GetComponent<SendInfo>();
                 sendInfo.setName(LapTopInfo.Dat.NameList.get(i));
                 recSuspect.GetComponent<Text>().text = sendInfo.getName();
 
-                //if (recSuspect.GetComponent<InputInfo>().checkInfo())
-                //{
-               //     recSuspect.GetComponent<InputInfo>().isButtonHit = true;
-
-                //}
             }
         }
     }
@@ -108,7 +98,8 @@ public class ListenerLaptop : MonoBehaviour
     {
         bg.GetComponent<Canvas>().enabled = false;
         SendInfo sendInfo = screen.GetComponent<SendInfo>();
-        sendInfo.setName(suspect.GetComponent<Text>().text);
+        Debug.Log(input.text);
+        sendInfo.setName(input.text.ToUpper());
         recSuspect.GetComponent<Text>().text = sendInfo.getName();
         if (recSuspect.GetComponent<InputInfo>().checkInfo())
         {
@@ -119,10 +110,9 @@ public class ListenerLaptop : MonoBehaviour
             buttonsInter.GetComponent<ButtonsInteraction>().onPage = true;
             misc.disableAllPlaceHolders();
             misc.createNewPlaceHolders(recSuspect.GetComponent<Text>().text, false);
-            string tag = misc.createTag(recSuspect.GetComponent<Text>().text);
+            string tag = misc.createTag(recSuspect.GetComponent<Text>().text.ToUpper().Trim());
             GameObject panel = GameObject.FindGameObjectWithTag(tag);
             WhichPanel.Panel = panel;
-            Debug.Log("Name:" + buttonsInter.GetComponent<ButtonsInteraction>().Name);
             LapTopInfo.EnabledButtons.Add(buttonsInter.GetComponent<ButtonsInteraction>().Name);
             LapTopInfo.Dat.saveSuspects();
             LapTopInfo.Dat.NewGame = false;
@@ -134,7 +124,6 @@ public class ListenerLaptop : MonoBehaviour
         {
             //make error sound effect
             input.text = "";
-            Debug.Log("Not a valid entry");
         }
     }
 
@@ -160,7 +149,6 @@ public class ListenerLaptop : MonoBehaviour
        // screen.GetComponent<AnsFields>().loadAnswers();//load answers for the notescreen
         
         //load panels for the notescreen
-        Debug.Log("Load:" + LapTopInfo.Dat.NewGame);
         helper.load(first);
         first = false;
         recSuspect.GetComponent<InputInfo>().isButtonHit = true;

@@ -28,8 +28,7 @@ using UnityEngine.UI;
         {
             if (readLine)
             {
-               // if (panelBtn.GetComponent<Button>().is)
-                    //Debug.Log("Pressed");
+            
                     readTextFile(panelText, item.getText());
 
             }
@@ -38,7 +37,7 @@ using UnityEngine.UI;
 
         void readTextFile(Text contents, string[] lines)
         {
-            //Debug.Log(contents);
+        
             end = lines.Length;
             if (cur < end)
             {
@@ -49,7 +48,6 @@ using UnityEngine.UI;
             else
             {
                 contents.text = "";
-                Debug.Log("End of File");
                 readLine = false;
                 cur = 0;
                 popUpNow();

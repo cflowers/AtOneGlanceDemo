@@ -70,6 +70,7 @@ public class PlaceButtonsMain : MonoBehaviour {
             this.sceneBBookCaseButtons();
             this.sceneGBookCaseButtons();
             this.sceneTicketButtons();
+            this.sceneTicket2Buttons();
             this.sceneBBookCaseUpButtons();
             sceneShelfRightButtons();
             this.sceneCupButtons();
@@ -447,6 +448,12 @@ public class PlaceButtonsMain : MonoBehaviour {
 
     }
 
+ void sceneTicket2Buttons()
+    {
+        PBSceneTicket2 pb = new PBSceneTicket2();
+        pb.sceneButtons(d, popUpD, bg.wr.map["TICKET_F"]);
+
+    }
     void sceneBBookCaseUpButtons()
     {
         PBSceneBBookCaseUp pb = new PBSceneBBookCaseUp();

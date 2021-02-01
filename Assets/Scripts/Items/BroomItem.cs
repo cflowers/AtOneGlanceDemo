@@ -22,4 +22,8 @@ public class BroomItem : AbstractItems
         base.loadPic("Pics/broom");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

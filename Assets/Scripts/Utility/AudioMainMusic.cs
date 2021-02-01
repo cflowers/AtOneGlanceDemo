@@ -14,7 +14,6 @@ using UnityEngine.UI;
         {
             audio = this.GetComponent<AudioSource>();
             clips = Resources.LoadAll<AudioClip>("Audio/Music/PianoMoods");
-            Debug.Log("Clips Length: " + clips.Length);
         }
 
         void Update()

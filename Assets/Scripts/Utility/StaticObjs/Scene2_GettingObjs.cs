@@ -35,7 +35,6 @@ using UnityEngine;
             buttonsInter = GameObject.FindGameObjectWithTag("nextPanel");
             input = GameObject.FindGameObjectWithTag("inputSuspect");
             btnImg = GameObject.FindGameObjectWithTag("lisaBtn");
-           
         }
 
         void assignInstance()
@@ -110,6 +109,12 @@ using UnityEngine;
         {
             get { return input; }
             set { input = value; }
+        }
+
+           public GameObject Hud_Points
+        {
+            get { return hud_points; }
+            set { hud_points = value; }
         }
      
 	}

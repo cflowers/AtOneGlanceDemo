@@ -22,4 +22,9 @@ public class HandItem : AbstractItems
         base.loadPic("Pics/victim_hand");
 
     }
+
+     public override string[] whichToggle(){
+        string[] list = {"1","4"};
+        return list;
+    }
 }

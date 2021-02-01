@@ -33,7 +33,6 @@ public class CBSceneEnvCont : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(15, 14);
-        Debug.Log("Inspected:" +  Inspection.getEnvelopeInsp());
         
        
         if (!(Inspection.getEnvelopeInsp()))

@@ -48,25 +48,21 @@ using UnityEngine.UI;
 
             if (name == param)
             {
-               // Debug.Log("Before loop:" + list.size());
                 for (int i = 0; i < WhichPanel.getInstance().List.size(); i++)
                 {
                     if (WhichPanel.getInstance().List.get(i).Name == name)
                         list.Add(WhichPanel.getInstance().List.get(i));
                 }
 
-//                Debug.Log("After loop:" + list.size());
 
 
                 if (list.size() == 1 || (WhichPanel.Panel == WhichPanel.getInstance().List.getFirst().Panel))
                 {
-  //                  Debug.Log("Size1");
                     prev.GetComponent<Button>().interactable = false;
                 }
 
                 else
                 {
-   //                 Debug.Log("Size2");
                     prev.GetComponent<Button>().interactable = true;
                 }
             }
@@ -76,8 +72,7 @@ using UnityEngine.UI;
 
         public void ableButtonInteraction()
         {
-           // if (WhichPanel.getInstance().Panel != null)
-            //{
+          
                 int imageCount = 0;
                 GameObject mainPH = WhichPanel.Panel;
                 RawImage[] gos = mainPH.GetComponentsInChildren<RawImage>();
@@ -99,7 +94,7 @@ using UnityEngine.UI;
                 {
                     next.GetComponent<Button>().interactable = true;
                 }
-            //}
+           
         }
 
         public string Name

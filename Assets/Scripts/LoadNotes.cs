@@ -36,9 +36,7 @@ public class LoadNotes : MonoBehaviour {
         
          SendInfo sendInfo = screen.GetComponent<SendInfo>();
          name = sendInfo.getName();
-         Debug.Log("Name will be changed to:" + name);
          list = findNotesName(name);
-         Debug.Log("IndexList:" + indexList + ", List Size:" + list.size());
              //if list is not at the end then go to next object
              // if list is at the end create new place holders
              if (indexList != list.size()-1)
@@ -79,8 +77,7 @@ public class LoadNotes : MonoBehaviour {
 
     private void disablePlaceHolders()
     {
-       // Debug.Log("WhichPanel:" + WhichPanel.getInstance().List.getCurrent().Panel.GetComponentsInChildren<RawImage>().Length);
-        //Debug.Log("WhichPanel:" + WhichPanel.getInstance().List.getCurrent().Panel.tag);
+     
         misc.helperPlaceHolders(false,WhichPanel.Panel);
         
     }
@@ -101,13 +98,11 @@ public class LoadNotes : MonoBehaviour {
         CFLinkedList<PanelUtility> resultList = new CFLinkedList<PanelUtility>();
         for (int i = 0; i < WhichPanel.getInstance().List.size(); i++)
         {
-          //  Debug.Log("Finding Notes:" + WhichPanel.getInstance().List.get(i).Name);
             if (WhichPanel.getInstance().List.get(i).Name == name)
             {
                 resultList.Add(WhichPanel.getInstance().List.get(i));
             }
         }
-        Debug.Log("Name:" + name + "," + resultList.size());
         return resultList;
     }
 
@@ -127,7 +122,7 @@ public class LoadNotes : MonoBehaviour {
         GameObject bufPanel = GameObject.Instantiate(panel);
         GameObject mainPanel = GameObject.FindGameObjectWithTag("whatever");
         bufPanel.transform.SetParent(mainPanel.transform);
-        bufPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        bufPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(533, 322);
         GameObject holder = Resources.Load("Prefab/holder") as GameObject;
         setUpPlaceHolders(bufPanel, holder, -90);
         setUpPlaceHolders(bufPanel, holder, -180);
@@ -214,18 +209,16 @@ public class LoadNotes : MonoBehaviour {
         for (int i = 0; i < count; i++)
             test.Remove();
 
-       // Debug.Log(test.size());
         nextImages();
     }
 
     void nextImages()
     {
         rows = rows + 6;
-        Debug.Log("Rows:" + NotebookInfo.getNotebook());
-         Debug.Log("Rows:" + NotebookInfo.getNotebook().getList().Count);
+    
         int width = 100;
-        int current = 140;
-        int space = 20;
+        int current = 175;
+        int space = 50;
         
         if (NotebookInfo.getNotebook() != null && index < NotebookInfo.getNotebook().getList().Count)
         {
@@ -235,7 +228,7 @@ public class LoadNotes : MonoBehaviour {
                 GameObject bufImg = GameObject.Instantiate(imgObj);
                 GameObject panel = GameObject.FindGameObjectWithTag("whatever");
                 bufImg.transform.SetParent(panel.transform);
-                bufImg.GetComponent<RectTransform>().anchoredPosition = new Vector2(current, -40);
+                bufImg.GetComponent<RectTransform>().anchoredPosition = new Vector2(current, 52);
                 bufImg.GetComponent<RectTransform>().anchorMin = new Vector2(0f, 1f);
                 bufImg.GetComponent<RectTransform>().anchorMax = new Vector2(0f, 1f);
                 bufImg.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
@@ -247,14 +240,12 @@ public class LoadNotes : MonoBehaviour {
                 current = current + width + space;
             }
         }
-    //    Debug.Log("Test:" + test.size());
         nextSix = nextSix + 6;
     }
 
 
    public void prevImages()
     {
-    //    Debug.Log("Test:" + test.size());
         int count = test.size();
         for (int i = 0; i < count; i++)
         {
@@ -268,7 +259,6 @@ public class LoadNotes : MonoBehaviour {
        index = rows - 12;
        rows = rows - 12;
        nextSix = nextSix - 12;
-  //     Debug.Log("Index Previous:" + index);
        nextImages();
     }
 

@@ -23,9 +23,7 @@ public class Drag2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
     public void OnPointerDown(PointerEventData ped) {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(ped.pointerCurrentRaycast.gameObject.name);
             
-         //   Debug.Log(ln.getPlaceHolders()[0].go.name);
             obj = ped.pointerCurrentRaycast.gameObject;
         }
 
@@ -89,7 +87,6 @@ public class Drag2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
             bufLine.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
             bufLine.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
             bufLine.GetComponent<LineRenderer>().SetWidth(45f, 45f);
-            Debug.Log("Raw Image:" + list.First.Value.localPosition);
             bufLine.GetComponent<LineRenderer>().SetPosition(0, list.First.Value.localPosition);
             bufLine.GetComponent<LineRenderer>().SetPosition(1, list.Last.Value.localPosition);
             bufLine.transform.SetParent(parent);

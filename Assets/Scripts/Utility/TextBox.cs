@@ -19,7 +19,6 @@ public class TextBox : MonoBehaviour {
 
     void showTextBoxScroll()
     {
-       // Debug.Log("Show Text Box Scroll");
         GameObject textBox = GameObject.FindGameObjectWithTag("scrollbox");
         GameObject scrollVert = GameObject.FindGameObjectWithTag("scrollVert");
         textBox.GetComponentInChildren<RawImage>().enabled = true;
@@ -35,11 +34,11 @@ public class TextBox : MonoBehaviour {
         {
             i.enabled = true;
         }
-        textBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-38, 160);
+        textBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-38, 449);
         textBox.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0f);
         textBox.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0f);
         textBox.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        scrollVert.GetComponent<RectTransform>().anchoredPosition = new Vector2(-182, 159);
+        scrollVert.GetComponent<RectTransform>().anchoredPosition = new Vector2(-182, 449);
         scrollVert.GetComponent<RectTransform>().anchorMin = new Vector2(1f, 0f);
         scrollVert.GetComponent<RectTransform>().anchorMax = new Vector2(1f, 0f);
         scrollVert.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);

@@ -23,7 +23,7 @@ public class ListenerSolve : MonoBehaviour {
     Dictionary<string, string> choices = new Dictionary<string, string>();
     int count = 0;
     GameObject panel;
-
+ GameObject solveCanvas;
     void Start()
     {
         panel = GameObject.FindGameObjectWithTag("whoPanel");
@@ -31,9 +31,40 @@ public class ListenerSolve : MonoBehaviour {
 
     public void openSolveCanvas()
     {
-        GameObject solveCanvas = GameObject.FindGameObjectWithTag("solvePanel");
+        if(LapTopInfo.Dat.NameList.size() ==4)
+        {
+        solveCanvas = GameObject.FindGameObjectWithTag("solvePanel");
         solveCanvas.GetComponent<Canvas>().sortingOrder = 1;
+        }
+  else if(LapTopInfo.Dat.NameList.size() !=4)
+        {
+        solveCanvas = GameObject.FindGameObjectWithTag("donotsolvepanel");
+        solveCanvas.GetComponent<Canvas>().sortingOrder = 1;
+        this.createCloseBtn(solveCanvas);
+
+        }
+        
     }
+
+      void createCloseBtn(GameObject solveCanvas)
+    {
+        GameObject imgObj = Resources.Load("Prefab/CloseBtn") as GameObject;
+        GameObject go = GameObject.Instantiate(imgObj);
+        go.transform.SetParent(solveCanvas.transform);
+        go.GetComponent<RectTransform>().anchoredPosition = new Vector3(-182f, -124f, 0);
+        go.GetComponent<RectTransform>().anchorMin = new Vector2(1f, 1f);
+        go.GetComponent<RectTransform>().anchorMax = new Vector2(1f, 1f);
+        go.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+        go.GetComponent<Button>().onClick.AddListener(delegate { lis_delete2(go); });
+       
+    }
+
+     void lis_delete2(GameObject go)
+    {
+        //GameObject.Destroy(go.transform.parent.gameObject);
+       solveCanvas.GetComponent<Canvas>().sortingOrder = -2;
+    }
+
 
     public void who()
     {
@@ -167,17 +198,29 @@ public class ListenerSolve : MonoBehaviour {
         obtainAnswers();
         compareChoicesAnswers();
 
-        if (correctWho && correctHow && correctWhy)
+        if (correctWho && correctHow && correctWhy){
             Debug.Log("You're a great detective");
+               GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+               GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Won";
+        }
 
-        else if (correctWho && !correctHow && !correctWhy)
+        else if (correctWho && !correctHow && !correctWhy){
             Debug.Log("At least you got the right guy");
+               GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                     GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+        }
 
-        else if (correctWho && correctHow && !correctWhy)
+        else if (correctWho && correctHow && !correctWhy){
             Debug.Log("Almost there");
+               GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                     GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+        }
 
-        else if (correctWho && !correctHow && correctWhy)
+        else if (correctWho && !correctHow && correctWhy){
             Debug.Log("Almost there");
+               GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                     GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+        }
 
         else 
             Debug.Log("Try again");

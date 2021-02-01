@@ -13,26 +13,29 @@ using System.Text;
 
      public int current = 0;
 
-     public void Add(T node)
+    public T[] Array { get => array; set => array = value; }
+    public LinkedList<T> List { get => list; set => list = value; }
+
+    public void Add(T node)
      {
-         list.AddLast(node);
+         List.AddLast(node);
      }
 
      public void AddAll(CFLinkedList<T> list2)
      {
          T[] arr = convert(list2);
          for (int i = 0; i < arr.Length; i++)
-             list.AddLast(arr[i]);
+             List.AddLast(arr[i]);
      }
 
      public void Remove()
      {
-         list.RemoveLast();
+         List.RemoveLast();
      }
 
      public void RemoveObj(T obj)
      {
-         list.Remove(obj);
+         List.Remove(obj);
      }
 
      public T get(int index)
@@ -41,7 +44,7 @@ using System.Text;
          //convert list to array
          convert();
          //get object per index of array
-         obj = array[index];
+         obj = Array[index];
          //return object
          return obj;
      }
@@ -52,7 +55,7 @@ using System.Text;
          //convert list to array
          convert();
          //get object per index of array
-         obj = array[0];
+         obj = Array[0];
          //return object
          return obj;
      }
@@ -63,7 +66,7 @@ using System.Text;
          //convert list to array
          convert();
          //get object per index of array
-         obj = array[list.Count-1];
+         obj = Array[List.Count-1];
          //return object
          return obj;
      }
@@ -74,7 +77,7 @@ using System.Text;
          //convert list to array
          convert();
          //get object per index of array
-         obj = array[current];
+         obj = Array[current];
          //return object
          return obj;
      }
@@ -86,7 +89,7 @@ using System.Text;
          convert();
          //get object per index of array
          current = current + 1;
-         obj = array[current];
+         obj = Array[current];
          //return object
          return obj;
      }
@@ -100,25 +103,25 @@ using System.Text;
          if(current > 0)
             current = current - 1;
 
-         obj = array[current];
+         obj = Array[current];
          //return object
          return obj;
      }
 
      public int size()
      {
-         return list.Count;
+         return List.Count;
      }
 
      public LinkedList<T> getList()
      {
-         return list;
+         return List;
      }
 
-     private void convert()
+     public void convert()
      {
-         array = new T[list.Count];
-         list.CopyTo(array, 0);
+         Array = new T[List.Count];
+         List.CopyTo(Array, 0);
      }
 
      private T[] convert(CFLinkedList<T> list2)

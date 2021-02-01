@@ -56,7 +56,7 @@ public class CBSceneRTPaper1 : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new RTPaperItem1();
        // this.item.beginText();
         this.item.loadImage();

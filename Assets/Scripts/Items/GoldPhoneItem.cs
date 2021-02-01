@@ -22,4 +22,9 @@ public class GoldPhoneItem : AbstractItems
         base.loadPic("Pics/goldPhone");
 
     }
+
+     public override string[] whichToggle(){
+        string[] list = {"3","4"};
+        return list;
+    }
 }

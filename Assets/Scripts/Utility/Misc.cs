@@ -19,7 +19,7 @@ using System.Collections.Generic;
             GameObject bufPanel = GameObject.Instantiate(panel);
             GameObject mainPanel = GameObject.FindGameObjectWithTag("whatever");
             bufPanel.transform.SetParent(mainPanel.transform);
-            bufPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            bufPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(533, 322);
             GameObject holder = Resources.Load("Prefab/holder") as GameObject;
             setUpPlaceHolders(bufPanel, holder, -90);
             setUpPlaceHolders(bufPanel, holder, -180);
@@ -53,7 +53,7 @@ using System.Collections.Generic;
             string tag = null;
             if (name == "LISA HAWK")
                 tag = "placeHolderLisa";
-            else if (name == "BRANDON HAWK")
+            else if (name.Equals("BRANDON HAWK"))
                 tag = "placeHolderDad";
             else if (name == "STACY HAWK")
                 tag = "placeHolderSis";
@@ -132,7 +132,6 @@ using System.Collections.Generic;
         {
             if (WhichPanel.Panel != null)
             {
-                Debug.Log("List:" + WhichPanel.getInstance().List.size());
                 //for (int a = 0; a < WhichPanel.List.size(); a++)
                 helperPlaceHolders(true, WhichPanel.getInstance().List.get(0).Panel);
             }
@@ -156,7 +155,6 @@ using System.Collections.Generic;
 
        private void toggleOff(GameObject togglesGrp){
         Toggle[] toggles = togglesGrp.GetComponentsInChildren<Toggle>();
-          Debug.Log(toggles[0].graphic.color);
           
             for (int i = 0; i < toggles.Length; i++)
            {

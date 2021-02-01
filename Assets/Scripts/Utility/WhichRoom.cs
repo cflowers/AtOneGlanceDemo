@@ -101,6 +101,7 @@ public class WhichRoom
         map.Add("PURPLEPH_FAREED_ZM3", false);
         map.Add("ANTHRAX_BOOK", false);
         map.Add("GUN", false);
+        map.Add("TICKET_F", false);
     }
 
     public void fillList()
@@ -153,6 +154,7 @@ public class WhichRoom
         list.AddFirst("STATUE");
         list.AddFirst("ANTHRAX_BOOK");
         list.AddFirst("GUN");
+        list.AddFirst("TICKET_F");
     }
 
 

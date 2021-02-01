@@ -22,4 +22,9 @@ public class LetterItem : AbstractItems
         base.loadPic("Pics/letter");
 
     }
+
+public override string[] whichToggle(){
+        string[] list = {"1","2","4"};
+        return list;
+    }
 }

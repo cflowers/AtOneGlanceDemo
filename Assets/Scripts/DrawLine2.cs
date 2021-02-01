@@ -20,10 +20,8 @@ public class DrawLine2 : MonoBehaviour {
         imageRectTransform = gameObject.GetComponent<RectTransform>();
         Vector3 differenceVector = pointB - pointA;//(204,56)
         //Vector3 = UnitVec*(differenceVector + width)
-        Debug.Log(differenceVector.magnitude);//211.54
         //Get direction
         Vector3 unitVec = Vector3.Normalize(pointB - pointA);//(1,0.3,0)
-        Debug.Log("Normalize" + unitVec);
         imageRectTransform.sizeDelta = new Vector2(differenceVector.magnitude, 30f);//(211.54,45)
       //  Vector3 vec = new Vector3(unitVec.x * (differenceVector.x + raw1_width), (differenceVector.y), 0);
         Vector3 vec = new Vector3((differenceVector.x - raw1_width), (differenceVector.y), 0);
@@ -37,9 +35,4 @@ public class DrawLine2 : MonoBehaviour {
 	}
 	
 	
-	void Update () {
-      
-      
-
-	}
 }

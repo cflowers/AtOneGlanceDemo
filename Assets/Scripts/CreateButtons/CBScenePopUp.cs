@@ -38,7 +38,6 @@ using UnityEngine.UI;
         {
             if (TimerSC.getTimer().RemainingSeconds == 0)
             {
-                Debug.Log("OUT OF TIME");
             }
         }
 
@@ -46,7 +45,7 @@ using UnityEngine.UI;
         {
             dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
             dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
-            dicAnchor["buttonPos"] = new Vector2(151, 206);
+            dicAnchor["buttonPos"] = new Vector2(-185, -267);
             c.createWriteButton(panel.transform,dicAnchor, new UnityAction(delegate { lis_write(); }));
         }
 
@@ -54,7 +53,7 @@ using UnityEngine.UI;
         {
             dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
             dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
-            dicAnchor["buttonPos"] = new Vector2(271, 207);
+            dicAnchor["buttonPos"] = new Vector2(236, -266);
             c.createDontWriteButton(panel.transform, dicAnchor, new UnityAction(delegate { lis_dontWrite(); }));
         }
 
@@ -64,12 +63,12 @@ using UnityEngine.UI;
             Hud anim = c.getCanvas().GetComponent<Hud>();
             if (write)
             {
-                helper_lisWrite(anim, 2);
+                helper_lisWrite(anim, 0);
             }
 
             else if (!write)
             {
-                helper_lisWrite(anim, -5);
+                helper_lisWrite(anim, 0);
             }
 
         }
@@ -79,21 +78,22 @@ using UnityEngine.UI;
             bool write = c.getCanvas().GetComponent<PopUp>().getItem().getWrite();
             if (write)
             {
-                helper_lisDontWrite(-5);
+                helper_lisDontWrite(-10);
             }
 
             else if (!write)
             {
-                helper_lisDontWrite(2);
+                helper_lisDontWrite(5);
             }
         }
 
 
         private void helper_lisWrite(Hud anim, int howMany)
         {
+            
             destroyButtons();
             c.getCanvas().GetComponent<Canvas>().sortingOrder = -1;
-            updatePoints(howMany);
+           // updatePoints(howMany);
             anim.buttonPressed = true;
             anim.canvas = c.getCanvas().GetComponent<Canvas>();
             anim.pic.texture =c.getCanvas().GetComponent<PopUp>().getItem().getPic();
@@ -110,6 +110,15 @@ using UnityEngine.UI;
             misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, true);
             //open notebook
             Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
+            //disables next and back page buttons
+            misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn"));
+             misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn_back"));
+              AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
            
         }
 
@@ -125,7 +134,12 @@ using UnityEngine.UI;
             d.done = false;
             d2.done = false;
             Scene_GettingObjs.getObjs().PopUp.GetComponent<PopUp>().setShow(false);
-           
+            AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
         }
 
         private void updatePoints(int howMany)
@@ -133,6 +147,10 @@ using UnityEngine.UI;
             int points = PlayerInfo.Points;
             PlayerInfo.Points = points + howMany;
             hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+            if(points <=0){
+                   GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+            }
         }
 
 

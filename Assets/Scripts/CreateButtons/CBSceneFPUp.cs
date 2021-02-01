@@ -36,34 +36,46 @@ public class CBSceneFPUp : AbstractCBScene
     {
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
-        dicAnchor["buttonPos"] = new Vector2(6, -260);
+        dicAnchor["buttonPos"] = new Vector2(6, -33);
+        if (!(Inspection.getBoomBox()))
         c.createButtons("buttonBoomBox", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetBoomBox(); }),
           false, true);
+        else if (Inspection.getBoomBox())
+        c.createButtons("buttonBoomBox", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetBoomBox(); }),
+          false, false);
     }
 
     private void createInspectPictureLeftButton()
     {
         dicAnchor["anchorMin"] = new Vector2(0f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0f, 0.5f);
-        dicAnchor["buttonPos"] = new Vector2(302, -260);
+        dicAnchor["buttonPos"] = new Vector2(302, 10);
+         if (!(Inspection.getFPPicLInsp()))
         c.createButtons("buttonPicLeft", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetPicL(); }),
           false, true);
+        else if (Inspection.getFPPicLInsp())
+        c.createButtons("buttonPicLeft", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetPicL(); }),
+          false, false);
     }
 
     private void createInspectPictureRightButton()
     {
         dicAnchor["anchorMin"] = new Vector2(1f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(1f, 0.5f);
-        dicAnchor["buttonPos"] = new Vector2(-260, -260);
+        dicAnchor["buttonPos"] = new Vector2(-260, 10);
+          if (!(Inspection.getFPPicRInsp()))
         c.createButtons("buttonPicRight", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetPicR(); }),
           false, true);
+        else if (Inspection.getFPPicRInsp())
+        c.createButtons("buttonPicRight", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetPicR(); }),
+          false, false);
     }
 
     private void createInspectHiddenPhoneButton()
     {
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
-        dicAnchor["buttonPos"] = new Vector2(348, -4);
+        dicAnchor["buttonPos"] = new Vector2(355, 285);
         c.createButtons("buttonHidPhone", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_GetPhone(); }),
           false, true);
     }
