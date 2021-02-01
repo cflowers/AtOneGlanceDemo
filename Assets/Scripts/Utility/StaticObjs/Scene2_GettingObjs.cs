@@ -35,7 +35,6 @@ using UnityEngine;
             buttonsInter = GameObject.FindGameObjectWithTag("nextPanel");
             input = GameObject.FindGameObjectWithTag("inputSuspect");
             btnImg = GameObject.FindGameObjectWithTag("lisaBtn");
-           
         }
 
         void assignInstance()

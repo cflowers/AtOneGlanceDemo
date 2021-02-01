@@ -1,6 +1,7 @@
 ﻿ using UnityEngine;
   using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
   
   public class TimerSC : MonoBehaviour 
  {
@@ -28,11 +29,10 @@ using UnityEngine.UI;
             
              // assign Singleton
              m_instance = this;
-             //Debug.Log("MInstance" + m_instance);
          }
          
          // Init Timer
-         m_startTime = 15f;
+         m_startTime = 5f;
          m_timePassed = 0f;
         RemainingSeconds = m_startTime;
         //IsTicking = true;
@@ -61,7 +61,22 @@ using UnityEngine.UI;
                  GameObject popup = GameObject.FindGameObjectWithTag("popup");
                  GameObject hud_points = GameObject.FindGameObjectWithTag("points");
                  GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-
+                 AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/lostItem");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
+                      
+                GameObject.Destroy(Scene_GettingObjs.getObjs().Badges.getLast());
+                Scene_GettingObjs.getObjs().Badges.Remove();
+                PlayerInfo.Badges = PlayerInfo.Badges - 1;
+                
+                if(PlayerInfo.Badges <= 0){
+                    GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                     GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+                }
+              
                  if (popup.GetComponent<Canvas>().sortingOrder == 1)
                  {
                      popup.GetComponent<Canvas>().sortingOrder = -1;
@@ -72,6 +87,9 @@ using UnityEngine.UI;
                      tb.GetComponent<PlaceButtonsMain>().d.done = false;
                      tb.GetComponent<PlaceButtonsMain>().popUpD.done = false;
                      IsTicking = false;
+                     //TODO: delete write and don't write buttons 
+                     
+                     
                  }
                  // This is Game Over
                  ResetTimer();

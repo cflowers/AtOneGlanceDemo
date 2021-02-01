@@ -695,7 +695,6 @@ public class Background : MonoBehaviour
     {
         if (linkedList.Count > 1)
         {
-            Debug.Log("Got here in back");
             linkedList.RemoveLast();
             changeCurrent(linkedList.Last.Value.name);
             wr.boolHandle(linkedList.Last.Value.name);
@@ -708,7 +707,6 @@ public class Background : MonoBehaviour
    
     void back_fire()
     {
-       // Debug.Log("Back Fire:" + linkedList.Last.Value.name);
         if ((linkedList.Count == 1 && fireObjs.Count == 1) ||
             (linkedList.Last.Value.name.Equals("FIREPLACE") && fireObjs.Count == 2))
         {
@@ -718,7 +716,14 @@ public class Background : MonoBehaviour
 
         else if ((linkedList.Last.Value.name.Equals("FIREPLACE_UP") && fireObjs.Count == 2)||
                  (linkedList.Last.Value.name.Equals("FIREPLACE_LEFT") && fireObjs.Count == 2) ||
-                 (linkedList.Last.Value.name.Equals("FPU_BOOMBOX") && fireObjs.Count == 2)
+                 (linkedList.Last.Value.name.Equals("FPU_BOOMBOX") && fireObjs.Count == 2) ||
+                 (linkedList.Last.Value.name.Equals("BOOMBOX_OPEN") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("FPU_PHONE") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Contains("FAREED") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("PURPLEPH_CONTACTS") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("BINDER") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("FIREPLACE_RIGHT") && fireObjs.Count == 2)
+
                 )
         {
             animCode.beginAnimation1 = false;
@@ -727,10 +732,7 @@ public class Background : MonoBehaviour
 
         else if (fireObjs.Count > 1)
         {
-            Debug.Log("Count:" + fireObjs.Count);
             fireObjs.RemoveLast();
-            Debug.Log("Last:" + fireObjs.Last.Value.name);
-            Debug.Log("GOT HERE FIRE OBJS:" + fireObjs.Last.Value.pos);
             fire.GetComponent<RectTransform>().anchoredPosition = fireObjs.Last.Value.pos;
             animCode.beginAnimation(fire.GetComponent<RawImage>(), fireObjs.Last.Value.name);
 

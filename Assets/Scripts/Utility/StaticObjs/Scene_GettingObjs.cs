@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
     /**
      * A singleton class that holds
@@ -21,6 +22,8 @@ using UnityEngine;
         GameObject notebook;
         GameObject notebookToggle;
 
+        CFLinkedList<GameObject> badges  = new CFLinkedList<GameObject>();
+
         void Awake()
         {
             assignInstance();
@@ -32,6 +35,22 @@ using UnityEngine;
             loadWindow = GameObject.FindGameObjectWithTag("loadWindow");
             notebook = GameObject.FindGameObjectWithTag("notebook");
             notebookToggle = GameObject.FindGameObjectWithTag("notebookToggle");
+            Badges.Array = GameObject.FindGameObjectsWithTag("badge");
+            for(int i = 0; i<Badges.Array.Length; i++){
+                Badges.List.AddLast(Badges.Array[i]);
+            }
+            int count = Badges.Array.Length - PlayerInfo.Badges; 
+            if(count > 0){
+                for(int i = 0; i<count;i++){
+                    GameObject.Destroy(Badges.getLast());
+                    //Badges.Remove();
+                    Badges.Remove();
+                }
+            }
+            //Badges.convert()
+            hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+
+            
         }
 
         void assignInstance()
@@ -99,8 +118,6 @@ using UnityEngine;
             set { notebook = value; }
         }
 
-       
-       
-     
-	}
+    public CFLinkedList<GameObject> Badges { get => badges; set => badges = value; }
+}
 

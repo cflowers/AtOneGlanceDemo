@@ -91,6 +91,11 @@ TagManager:
   - turn
   - turn_back
   - points2
+  - donotsolvepanel
+  - badge
+  - PoliceCaught
+  - verdict
+  - lostBadgeEffect
   layers:
   - Default
   - TransparentFX

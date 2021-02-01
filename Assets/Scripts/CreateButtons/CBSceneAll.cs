@@ -56,9 +56,7 @@ using UnityEngine.Events;
             cont.Inspection = Inspection.getEnvelopeInsp();
             buttonsDic["map"] = cont;
             c.createButtons(buttonsDic);
-           // Debug.Log("Inspection" + buttonsDic["map"].Inspection);
-           // c.createButtons("buttonEnvelope", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_envelopeZoom(); }),
-             // false, true);
+       
         }
 
         private void createFirePlaceButton()

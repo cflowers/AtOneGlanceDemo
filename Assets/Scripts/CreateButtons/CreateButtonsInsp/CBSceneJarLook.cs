@@ -33,7 +33,6 @@ public class CBSceneJarLook : AbstractCBScene
 
     private void createJarLookButton()
     {
-        Debug.Log("GOT HERE");
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(36, 28);

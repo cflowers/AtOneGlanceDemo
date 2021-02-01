@@ -59,9 +59,7 @@ public class ListenerNotebook : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>() != null)
         {
-            Debug.Log(EventSystem.current.currentSelectedGameObject);
             Toggle toggle = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();
-            Debug.Log(toggle);
             toggle.graphic.color = new Color(1, 1, 1, 1);
         }
     }
@@ -79,7 +77,6 @@ public class ListenerNotebook : MonoBehaviour
              this.updatePoints(-10);
         }
 
-         Debug.Log(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.whichToggle());
          List<string> list = new List<string>(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.whichToggle());
          
         foreach (Toggle toggle in toggles)
@@ -87,20 +84,18 @@ public class ListenerNotebook : MonoBehaviour
             index = index + 1;
             if (toggle.isOn)
             {    
-                Debug.Log("Toggled" + index);
+               
                 notebookText.GetComponent<Text>().text += toggle.GetComponentInChildren<Text>().text + "\n";
                 //loop through the list and remove items if checked off
                 foreach(string correctToggle in list){ 
                   
                     if(correctToggle.Equals(""+index)){
-                        Debug.Log("CorrectToggle and toggled" + correctToggle);
                         this.updatePoints(1);
                         list.Remove(correctToggle);
                         break;
                     }
 
                     else if(!correctToggle.Equals(""+index)){
-                        Debug.Log("InCorrectToggle and toggled" + correctToggle);
                         this.updatePoints(-1);
                           
                         break;
@@ -111,11 +106,9 @@ public class ListenerNotebook : MonoBehaviour
 
             else if (!toggle.isOn)
             {
-                Debug.Log("Not toggled");
                 foreach(string correctToggle in list){
                     
                     if(correctToggle.Equals(""+index)){
-                        Debug.Log("CorrectToggle and not toggled" + correctToggle);
                         this.updatePoints(-1);
                       
                         break;
@@ -139,7 +132,10 @@ public class ListenerNotebook : MonoBehaviour
             int points = PlayerInfo.Points;
             PlayerInfo.Points = points + howMany;
             hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
-             Debug.Log("POINTS" + PlayerInfo.Points);
+               if(points <=0){
+                   GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+            }
         }
     //close notebook
     public void close_notebook()
@@ -154,10 +150,8 @@ public class ListenerNotebook : MonoBehaviour
     //turn to the next page in notebook
     public void turn_foward()
     {
-        Debug.Log("Pages:" + NotebookInfo.getNotebook().getList().Count);
         if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count - 1)
         {
-            Debug.Log("Forward:" + NotebookInfo.getNotebook().getArr()[index]);
             resetText();
             index++;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
@@ -228,7 +222,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeStacyMess1(Text notes)
     {
-        Debug.Log("Stacy Mess 1 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(29, 97, 0);
         notes.rectTransform.sizeDelta = new Vector2(386, 345);
@@ -237,7 +230,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeStacyMess2(Text notes)
     {
-        Debug.Log("Stacy Mess 2 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(40, 93, 0);
         notes.rectTransform.sizeDelta = new Vector2(319, 358);
@@ -246,7 +238,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeDadMess1(Text notes)
     {
-        Debug.Log("Dad Mess 1 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(51, 100, 0);
         notes.rectTransform.sizeDelta = new Vector2(286, 345);
@@ -255,7 +246,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizePurpleMess1(Text notes)
     {
-        Debug.Log("Purple Mess 1 Resize");
         notes.fontSize = 20;
         notes.rectTransform.localPosition = new Vector3(51, 100, 0);
         notes.rectTransform.sizeDelta = new Vector2(328, 354);

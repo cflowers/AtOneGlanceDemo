@@ -35,7 +35,6 @@ public class CBSceneFPPicL : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-18, -123);
-        Debug.Log("Inspected:" + Inspection.getFPPicLInsp());
         if (!(Inspection.getFPPicLInsp()))
             c.createButtons("buttonFPPicLInspect", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_Inspection(); }),
               false, true);

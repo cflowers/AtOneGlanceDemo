@@ -35,21 +35,18 @@ public abstract class AbstractItems : ItemsFactory
     public void loadTextFile(string path)
     {
         textFile = Resources.Load<TextAsset>(path);
-       // Debug.Log(textFile.name);
 
     }
 
     public void loadPic(string path)
     {
         img = Resources.Load<Texture2D>(path);
-       // Debug.Log(img);
     }
 
     public void parseText()
     {
        
         lines = textFile.text.Split('\n');
-    //    Debug.Log(lines.Length);
 
     }
 

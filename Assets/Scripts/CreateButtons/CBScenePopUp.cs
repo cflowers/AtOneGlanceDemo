@@ -38,7 +38,6 @@ using UnityEngine.UI;
         {
             if (TimerSC.getTimer().RemainingSeconds == 0)
             {
-                Debug.Log("OUT OF TIME");
             }
         }
 
@@ -114,6 +113,12 @@ using UnityEngine.UI;
             //disables next and back page buttons
             misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn"));
              misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn_back"));
+              AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
            
         }
 
@@ -129,7 +134,12 @@ using UnityEngine.UI;
             d.done = false;
             d2.done = false;
             Scene_GettingObjs.getObjs().PopUp.GetComponent<PopUp>().setShow(false);
-           
+            AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
         }
 
         private void updatePoints(int howMany)
@@ -137,6 +147,10 @@ using UnityEngine.UI;
             int points = PlayerInfo.Points;
             PlayerInfo.Points = points + howMany;
             hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+            if(points <=0){
+                   GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+            }
         }
 
 
