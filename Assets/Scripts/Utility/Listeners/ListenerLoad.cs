@@ -28,6 +28,7 @@ public class ListenerLoad : MonoBehaviour {
     {
         yPos = 187f;
         //show load window
+         Scene_GettingObjs.getObjs().SaveWindow.GetComponent<Canvas>().enabled = false;
         Scene_GettingObjs.getObjs().LoadWindow.GetComponent<Canvas>().enabled = true;
         dirs = System.IO.Directory.GetDirectories(Application.persistentDataPath);
         for(int i = 0; i < dirs.Length; i++)

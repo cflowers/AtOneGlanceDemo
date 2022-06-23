@@ -98,7 +98,6 @@ public class CBSceneHand : AbstractCBScene
         item = new HandItem();
         //this.item.beginText();
         this.item.loadImage();
-        //tb.GetComponent<DisplayText>().readLine = true;
         JsonBuffer jsonBuffer = new JsonBuffer();
         jsonBuffer.setToggleText("Hand");  
         tb.GetComponent<DisplayText>().item = item;

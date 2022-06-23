@@ -26,7 +26,7 @@ public class PlaceButtonsMain : MonoBehaviour {
             sceneAllButtons();
             sceneEnvZoomButtons();
             sceneGunButtons();
-         //   sceneEnvContButtons();
+            sceneEnvContButtons();
             sceneFPButtons();
             sceneFPUpButtons();
             sceneFPDownButtons();
@@ -70,6 +70,7 @@ public class PlaceButtonsMain : MonoBehaviour {
             this.sceneBBookCaseButtons();
             this.sceneGBookCaseButtons();
             this.sceneTicketButtons();
+            this.sceneTicket2Buttons();
             this.sceneBBookCaseUpButtons();
             sceneShelfRightButtons();
             this.sceneCupButtons();
@@ -122,10 +123,10 @@ public class PlaceButtonsMain : MonoBehaviour {
         controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE"], new CBSceneEnvZoom());
     }
 
-    //void sceneEnvContButtons()
-    //{
-    //    controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE_CONT"], new CBSceneEnvCont());
-    //}
+    void sceneEnvContButtons()
+    {
+       controller.buttonProcess(d, popUpD, bg.wr.map["ENVELOPE_CONT"], new CBSceneEnvCont());
+    }
 
     void sceneGunButtons()
     {
@@ -447,6 +448,12 @@ public class PlaceButtonsMain : MonoBehaviour {
 
     }
 
+ void sceneTicket2Buttons()
+    {
+        PBSceneTicket2 pb = new PBSceneTicket2();
+        pb.sceneButtons(d, popUpD, bg.wr.map["TICKET_F"]);
+
+    }
     void sceneBBookCaseUpButtons()
     {
         PBSceneBBookCaseUp pb = new PBSceneBBookCaseUp();

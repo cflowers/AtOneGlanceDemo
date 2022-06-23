@@ -102,6 +102,7 @@ public class Background : MonoBehaviour
     const int PURPLEPH_FAREED_ZM3 = 75;
     const int ANTHRAX_BOOK = 76;
     const int GUN = 77;
+    const int TICKET_F = 78;
     string current = "";
 
     void Awake()
@@ -110,7 +111,7 @@ public class Background : MonoBehaviour
         rawImageComp.texture = textures[WHOLE_ROOM];
         current = "WHOLE_ROOM";
         fire = GameObject.FindGameObjectWithTag("testTex");
-        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-88.0f, 82.0f);
+        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-5.0f, -40.0f);
         animCode = GetComponent<AnimationCode>();
         animCode.beginAnimation(fire.GetComponent<RawImage>(), 
             "textures/level1/animations/FireplaceSprites/AllRoomSprites");
@@ -174,7 +175,7 @@ public class Background : MonoBehaviour
         linkedList.AddLast(new CrimeTex(textures[FIREPLACE], "FIREPLACE"));
         rawImageComp.texture = textures[FIREPLACE];
         animCode = GetComponent<AnimationCode>();
-        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-7.0f, 3.0f);
+        fire.GetComponent<RectTransform>().anchoredPosition = new Vector2(-7.0f, -34.0f);
         fireObjs.AddLast(new FireSheet(fire.GetComponent<RectTransform>().anchoredPosition, 
             "textures/level1/animations/FireplaceSprites/FireplaceFront"));
         animCode.beginAnimation(fire.GetComponent<RawImage>(), 
@@ -504,6 +505,13 @@ public class Background : MonoBehaviour
         wr.boolHandle(linkedList.Last.Value.name);
     }
 
+     public void ticket2()
+    {
+        linkedList.AddLast(new CrimeTex(textures[TICKET_F], "TICKET_F"));
+        rawImageComp.texture = textures[TICKET_F];
+        wr.boolHandle(linkedList.Last.Value.name);
+    }
+
     public void bbookcase_up()
     {
         linkedList.AddLast(new CrimeTex(textures[BBOOKCASE_UP], "BBOOKCASE_UP"));
@@ -689,7 +697,7 @@ public class Background : MonoBehaviour
         {
             linkedList.RemoveLast();
             changeCurrent(linkedList.Last.Value.name);
-           // wr.boolHandle(linkedList.Last.Value.name);
+            wr.boolHandle(linkedList.Last.Value.name);
             Texture2D tex = linkedList.Last.Value.tex;
             rawImageComp.texture = tex;
             back_fire();
@@ -699,7 +707,6 @@ public class Background : MonoBehaviour
    
     void back_fire()
     {
-       // Debug.Log("Back Fire:" + linkedList.Last.Value.name);
         if ((linkedList.Count == 1 && fireObjs.Count == 1) ||
             (linkedList.Last.Value.name.Equals("FIREPLACE") && fireObjs.Count == 2))
         {
@@ -709,7 +716,14 @@ public class Background : MonoBehaviour
 
         else if ((linkedList.Last.Value.name.Equals("FIREPLACE_UP") && fireObjs.Count == 2)||
                  (linkedList.Last.Value.name.Equals("FIREPLACE_LEFT") && fireObjs.Count == 2) ||
-                 (linkedList.Last.Value.name.Equals("FPU_BOOMBOX") && fireObjs.Count == 2)
+                 (linkedList.Last.Value.name.Equals("FPU_BOOMBOX") && fireObjs.Count == 2) ||
+                 (linkedList.Last.Value.name.Equals("BOOMBOX_OPEN") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("FPU_PHONE") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Contains("FAREED") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("PURPLEPH_CONTACTS") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("BINDER") && fireObjs.Count == 2)||
+                 (linkedList.Last.Value.name.Equals("FIREPLACE_RIGHT") && fireObjs.Count == 2)
+
                 )
         {
             animCode.beginAnimation1 = false;
@@ -718,10 +732,7 @@ public class Background : MonoBehaviour
 
         else if (fireObjs.Count > 1)
         {
-            Debug.Log("Count:" + fireObjs.Count);
             fireObjs.RemoveLast();
-            Debug.Log("Last:" + fireObjs.Last.Value.name);
-            Debug.Log("GOT HERE FIRE OBJS:" + fireObjs.Last.Value.pos);
             fire.GetComponent<RectTransform>().anchoredPosition = fireObjs.Last.Value.pos;
             animCode.beginAnimation(fire.GetComponent<RawImage>(), fireObjs.Last.Value.name);
 

@@ -22,4 +22,9 @@ public class MapItem : AbstractItems
         base.loadPic("Pics/map");
 
     }
+
+       public override string[] whichToggle(){
+        string[] list = {"1","3","4"};
+        return list;
+    }
 }

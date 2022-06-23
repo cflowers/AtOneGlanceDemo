@@ -22,4 +22,9 @@ public class AwardItem : AbstractItems
         base.loadPic("Pics/staffAward");
 
     }
+
+    public override string[] whichToggle(){
+        string[] list = {"1","2"};
+        return list;
+    }
 }

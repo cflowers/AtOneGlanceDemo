@@ -16,6 +16,7 @@ using UnityEngine.Events;
         public AudioClip bookClip;
         public AudioClip metalClip;
         public AudioClip closeClip;
+         public AudioClip lostItem;
         public CreateButton c = new CreateButton();
 
         public AbstractCBScene()
@@ -47,7 +48,7 @@ using UnityEngine.Events;
             bookClip = Resources.Load<AudioClip>("Audio/SFX/bookObj");
             metalClip = Resources.Load<AudioClip>("Audio/SFX/metalObj");
             closeClip = Resources.Load<AudioClip>("Audio/SFX/closeObj");
-
+            
         }
 
         public LinkedList<GameObject> getButtons()
@@ -75,7 +76,6 @@ using UnityEngine.Events;
 
                 for (int i = 0; i < size; i++)
                 {
-                    Debug.Log("Removed");
                     GameObject.Destroy(getButtons().First.Value);
                     getButtons().RemoveFirst();
                 }

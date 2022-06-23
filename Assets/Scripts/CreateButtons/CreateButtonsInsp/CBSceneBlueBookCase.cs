@@ -25,6 +25,7 @@ public class CBSceneBlueBookCase : AbstractCBScene
         c.setCanvas("canvas");
         createBlueBookCaseButton();
         createTicketButton();
+        createTicket2Button();
         createUpButton();
         createBackButton();
         d.done = true;
@@ -53,6 +54,16 @@ public class CBSceneBlueBookCase : AbstractCBScene
         false, true);
     }
 
+
+     private void createTicket2Button()
+    {
+        dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
+        dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
+        dicAnchor["buttonPos"] = new Vector2(21, -228);
+        c.createButtons("buttonTicket2", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_ticket2(); }),
+        false, true);
+    }
+
     private void createUpButton()
     {
         dicAnchor["anchorMin"] = new Vector2(0.5f, 1f);
@@ -75,7 +86,7 @@ public class CBSceneBlueBookCase : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");   
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new BBookcaseItem();
         this.item.beginText();
         this.item.loadImage();
@@ -91,6 +102,14 @@ public class CBSceneBlueBookCase : AbstractCBScene
         destroyButtons();
         GameObject bg = GameObject.FindGameObjectWithTag("canvas");
         bg.GetComponent<Background>().ticket();
+        d.done = false;
+    }
+
+ public void lis_ticket2()
+    {
+        destroyButtons();
+        GameObject bg = GameObject.FindGameObjectWithTag("canvas");
+        bg.GetComponent<Background>().ticket2();
         d.done = false;
     }
 

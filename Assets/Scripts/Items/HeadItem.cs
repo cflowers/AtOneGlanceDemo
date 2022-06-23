@@ -22,4 +22,8 @@ public class HeadItem : AbstractItems
         base.loadPic("Pics/head");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

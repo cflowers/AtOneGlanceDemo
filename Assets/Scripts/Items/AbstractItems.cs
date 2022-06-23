@@ -13,6 +13,7 @@ public abstract class AbstractItems : ItemsFactory
     string[] lines;
     public string itemDesc;
     
+    private string[] list = {};
 
     public virtual void beginText() { }
 
@@ -22,6 +23,10 @@ public abstract class AbstractItems : ItemsFactory
 
     public virtual void setItemDesc(string itemDesc) { this.itemDesc = itemDesc; }
 
+    public string getItemDesc() { return this.itemDesc; }
+
+    public virtual string[] whichToggle() { return list;}
+
     public void begin(string path) {
         loadTextFile(path);
         parseText();
@@ -30,21 +35,18 @@ public abstract class AbstractItems : ItemsFactory
     public void loadTextFile(string path)
     {
         textFile = Resources.Load<TextAsset>(path);
-       // Debug.Log(textFile.name);
 
     }
 
     public void loadPic(string path)
     {
         img = Resources.Load<Texture2D>(path);
-       // Debug.Log(img);
     }
 
     public void parseText()
     {
        
         lines = textFile.text.Split('\n');
-    //    Debug.Log(lines.Length);
 
     }
 
@@ -64,6 +66,10 @@ public abstract class AbstractItems : ItemsFactory
     public Texture2D getPic()
     {
         return img;
+    }
+
+    public bool hasBeenSeen(){
+        return false;
     }
   
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+//move stupid picture
 public class Hud : MonoBehaviour {
 
   
@@ -24,10 +25,10 @@ public class Hud : MonoBehaviour {
             float step = 300 * Time.deltaTime;
             pic.enabled = true;
             pic.transform.position = Vector3.MoveTowards(pic.transform.position, book.position, step);
-
-            if (pic.transform.position.Equals(book.position))
+           
+             
+            if (pic.transform.position.x >= book.position.x) 
             {
-                Debug.Log("ButtonPressed is false now");
                 canvas.sortingOrder = -1;
                 buttonPressed = false;
                 reset();

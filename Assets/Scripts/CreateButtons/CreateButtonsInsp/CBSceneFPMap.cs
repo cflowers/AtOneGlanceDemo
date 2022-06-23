@@ -37,7 +37,6 @@ public class CBSceneFPMap : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(0, 0);
-        Debug.Log("Inspected:" + Inspection.getMapInsp());
         if (!(Inspection.getMapInsp()))
             c.createButtons("buttonInspect", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_Inspection(); }),
               false, true);
@@ -59,10 +58,12 @@ public class CBSceneFPMap : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+       // tb.GetComponent<TextBox>().textBool = true;
         item = new MapItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Map");  
        // tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

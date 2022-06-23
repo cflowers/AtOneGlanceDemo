@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class ListenerNotebook : MonoBehaviour
 {
@@ -15,7 +17,8 @@ public class ListenerNotebook : MonoBehaviour
     RawImage noteImg;
     bool changed;
     Misc misc = new Misc();
-
+    GameObject notebookText;
+    GameObject hud_points;
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -26,8 +29,10 @@ public class ListenerNotebook : MonoBehaviour
             origSizeDelta = notes.rectTransform.sizeDelta;
             origBestFit = notes.resizeTextForBestFit;
             fontSize = notes.fontSize;
-            noteImg = Scene_GettingObjs.getObjs().GetComponentInChildren<RawImage>();
+            noteImg = Scene_GettingObjs.getObjs().Notebook.GetComponentInChildren<RawImage>();
             changed = false;
+            notebookText = GameObject.FindGameObjectWithTag("notebook_text");
+              hud_points = GameObject.FindGameObjectWithTag("points");
         }
     }
 
@@ -35,11 +40,27 @@ public class ListenerNotebook : MonoBehaviour
     //open notebook, start on the first page
     public void open_notebook()
     {
+         //enables next and back page buttons
+            misc._ableButtons(true, GameObject.FindGameObjectWithTag("turn"));
+             misc._ableButtons(true, GameObject.FindGameObjectWithTag("turn_back"));
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
         if (NotebookInfo.getNotebook().getFirstItemArr() != null)
         {
-            notes.text = NotebookInfo.getNotebook().getFirstItemArr().getTextFile();
+            // Debug.Log("Item Text:" + NotebookInfo.getNotebook().getFirstItemArr().getItemDesc());
+            // Debug.Log("Item Pic:" + NotebookInfo.getNotebook().getFirstItemArr().getPic());
+            notebookText.GetComponent<Text>().enabled = true;
+            noteImg.enabled = true;
+            notes.text = NotebookInfo.getNotebook().getFirstItemArr().getItemDesc();
             noteImg.texture = NotebookInfo.getNotebook().getFirstItemArr().getPic();
+        }
+    }
+
+    public void toggledOn()
+    {
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>() != null)
+        {
+            Toggle toggle = EventSystem.current.currentSelectedGameObject.GetComponent<Toggle>();
+            toggle.graphic.color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -47,22 +68,80 @@ public class ListenerNotebook : MonoBehaviour
     public void write()
     {
         //save item to NotebookInfo
-        GameObject notebookText = GameObject.FindGameObjectWithTag("notebook_text");
         GameObject notebookToggle = Scene_GettingObjs.getObjs().NotebookToggle;
         Toggle[] toggles = notebookToggle.GetComponentsInChildren<Toggle>();
-        foreach(Toggle toggle in toggles){
-            if (toggle.isOn)
-                notebookText.GetComponent<Text>().text = toggle.GetComponent<Text>().text;
+        notebookText.GetComponent<Text>().text = "";
+        int index = 0;
+        bool write = Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.getWrite();
+        if(!write){
+             this.updatePoints(-10);
         }
-        Scene_GettingObjs.getObjs().Canvas.GetComponent<PopUp>().getItem().setItemDesc(notebookText.GetComponent<Text>().text);
-        NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<PopUp>().getItem());//save item to notebook
+
+         List<string> list = new List<string>(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.whichToggle());
+         
+        foreach (Toggle toggle in toggles)
+        {
+            index = index + 1;
+            if (toggle.isOn)
+            {    
+               
+                notebookText.GetComponent<Text>().text += toggle.GetComponentInChildren<Text>().text + "\n";
+                //loop through the list and remove items if checked off
+                foreach(string correctToggle in list){ 
+                  
+                    if(correctToggle.Equals(""+index)){
+                        this.updatePoints(1);
+                        list.Remove(correctToggle);
+                        break;
+                    }
+
+                    else if(!correctToggle.Equals(""+index)){
+                        this.updatePoints(-1);
+                          
+                        break;
+                    }
+                }
+               
+            }
+
+            else if (!toggle.isOn)
+            {
+                foreach(string correctToggle in list){
+                    
+                    if(correctToggle.Equals(""+index)){
+                        this.updatePoints(-1);
+                      
+                        break;
+                    }
+                }
+               
+            }
+        }
+
+        
+        Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item.setItemDesc(notebookText.GetComponent<Text>().text);
+        //save item to notebook
+        NotebookInfo.getNotebook().AddItem(Scene_GettingObjs.getObjs().Canvas.GetComponent<DisplayText>().item);
         //disable toggles
-        misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle,false);
-                   
+        misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, false);
+        notebookText.GetComponent<Text>().enabled = true;
     }
+
+  private void updatePoints(int howMany)
+        {
+            int points = PlayerInfo.Points;
+            PlayerInfo.Points = points + howMany;
+            hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+               if(points <=0){
+                   GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+            }
+        }
     //close notebook
     public void close_notebook()
     {
+        notebookText.GetComponent<Text>().enabled = false;
+        noteImg.enabled = false;
         Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = false;
         index = 0;
     }
@@ -77,8 +156,8 @@ public class ListenerNotebook : MonoBehaviour
             index++;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
-                resizeTextItems();
-                notes.text = NotebookInfo.getNotebook().getArr()[index].getTextFile();
+                //resizeTextItems();
+                notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }
         }
@@ -93,8 +172,8 @@ public class ListenerNotebook : MonoBehaviour
             index--;
             if (index >= 0 && index < NotebookInfo.getNotebook().getList().Count)
             {
-                resizeTextItems();
-                notes.text = NotebookInfo.getNotebook().getArr()[index].getTextFile();
+                //resizeTextItems();
+                notes.text = NotebookInfo.getNotebook().getArr()[index].getItemDesc();
                 noteImg.texture = NotebookInfo.getNotebook().getArr()[index].getPic();
             }
         }
@@ -143,7 +222,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeStacyMess1(Text notes)
     {
-        Debug.Log("Stacy Mess 1 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(29, 97, 0);
         notes.rectTransform.sizeDelta = new Vector2(386, 345);
@@ -152,7 +230,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeStacyMess2(Text notes)
     {
-        Debug.Log("Stacy Mess 2 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(40, 93, 0);
         notes.rectTransform.sizeDelta = new Vector2(319, 358);
@@ -161,7 +238,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizeDadMess1(Text notes)
     {
-        Debug.Log("Dad Mess 1 Resize");
         notes.resizeTextForBestFit = true;
         notes.rectTransform.localPosition = new Vector3(51, 100, 0);
         notes.rectTransform.sizeDelta = new Vector2(286, 345);
@@ -170,7 +246,6 @@ public class ListenerNotebook : MonoBehaviour
 
     private void resizePurpleMess1(Text notes)
     {
-        Debug.Log("Purple Mess 1 Resize");
         notes.fontSize = 20;
         notes.rectTransform.localPosition = new Vector3(51, 100, 0);
         notes.rectTransform.sizeDelta = new Vector2(328, 354);

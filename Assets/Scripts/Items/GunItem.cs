@@ -22,4 +22,9 @@ public class GunItem : AbstractItems
         base.loadPic("Pics/gun");
 
     }
+
+     public override string[] whichToggle(){
+        string[] list = {"1","4"};
+        return list;
+    }
 }

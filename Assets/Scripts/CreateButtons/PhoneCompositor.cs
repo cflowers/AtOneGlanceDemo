@@ -78,11 +78,25 @@ using UnityEngine.UI;
             falsifyFareedPopUps();
             lis_back();
             c.getCanvas().GetComponent<Canvas>().sortingOrder = -1;//hide popup
-            NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());//save item to notebook
+            //NotebookInfo.getNotebook().AddItem(c.getCanvas().GetComponent<PopUp>().getItem());//save item to notebook
             updatePoints(howMany);
             animatePics(anim);
             resetTimer();
-           
+           Misc misc = new Misc();
+            //enable toggles
+            misc._ableToggles(Scene_GettingObjs.getObjs().NotebookToggle, true);
+            //open notebook
+            Scene_GettingObjs.getObjs().Notebook.GetComponent<Canvas>().enabled = true;
+            
+            //disables next and back page buttons
+            misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn"));
+             misc._ableButtons(false, GameObject.FindGameObjectWithTag("turn_back"));
+              AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
         }
 
         private void helper_lisDontWrite(int howMany)
@@ -94,6 +108,12 @@ using UnityEngine.UI;
             c.getCanvas().GetComponent<Canvas>().sortingOrder = -1;//hide popup
             updatePoints(howMany);
             resetTimer();
+             AudioSource audio;
+                 AudioClip lostItem = Resources.Load<AudioClip>("Audio/SFX/points");
+                 GameObject sfx = GameObject.FindGameObjectWithTag("sfx");
+                 audio = sfx.GetComponent<AudioSource>();
+                audio.clip = lostItem;
+                  audio.Play();
         }
 
         private void updatePoints(int howMany)
@@ -101,6 +121,10 @@ using UnityEngine.UI;
             int points = PlayerInfo.Points;
             PlayerInfo.Points = points + howMany;
             hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+              if(points <=0){
+                   GameObject.FindGameObjectWithTag("verdict").GetComponent<Canvas>().sortingOrder = 1;
+                GameObject.FindGameObjectWithTag("verdict").GetComponentInChildren<Text>().text = "You Lost";
+            }
         }
 
         private void animatePics(Hud anim)
@@ -145,12 +169,12 @@ using UnityEngine.UI;
         {
             if (last.Equals("dadMess1Zm"))
             {
-                Debug.Log("DADMess1ZM");
+               
                 c.getCanvas().GetComponent<PopUp>().setShowPhone(false);
             }
             else if (last.Equals("dadMess2Zm"))
             {
-                Debug.Log("DADMess2ZM");
+               
                 c.getCanvas().GetComponent<PopUp>().setShowPhone2(false);
             }
 
@@ -160,12 +184,12 @@ using UnityEngine.UI;
         {
             if (last.Equals("stacyMess1Zm"))
             {
-                Debug.Log("StacyMess1ZM");
+              
                 c.getCanvas().GetComponent<PopUp>().StacyPhone = false;
             }
             else if (last.Equals("stacyMess2Zm"))
             {
-                Debug.Log("StacyMess2ZM");
+                
                 c.getCanvas().GetComponent<PopUp>().StacyPhone2 = false;
             }
 
@@ -175,18 +199,18 @@ using UnityEngine.UI;
         {
             if (last.Equals("fareedMess1Zm"))
             {
-                Debug.Log("FareedMess1ZM");
+               
                 c.getCanvas().GetComponent<PopUp>().FareedPhone = false;
             }
             else if (last.Equals("fareedMess2Zm"))
             {
-                Debug.Log("FareedMess2ZM");
+             
                 c.getCanvas().GetComponent<PopUp>().FareedPhone2 = false;
             }
 
             else if (last.Equals("fareedMess3Zm"))
             {
-                Debug.Log("FareedMess3ZM");
+             
                 c.getCanvas().GetComponent<PopUp>().FareedPhone3 = false;
             }
 

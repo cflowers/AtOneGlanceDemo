@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class EnvelopeItem : AbstractItems
 {
 
+ 
     public override void beginText()
     {
         base.begin("Text/ExaminingEnvContents");
@@ -26,5 +27,10 @@ public class EnvelopeItem : AbstractItems
     public override void setItemDesc(string itemDesc)
     {
         base.setItemDesc(itemDesc);
+    }
+
+    public override string[] whichToggle(){
+        string[] list = {"1","2"};
+        return list;
     }
 }

@@ -22,4 +22,8 @@ public class CupItem : AbstractItems
         base.loadPic("Pics/cuplook");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

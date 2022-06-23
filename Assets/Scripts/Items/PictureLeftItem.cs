@@ -22,4 +22,9 @@ public class PictureLeftItem : AbstractItems
         base.loadPic("Pics/fareedLisa");
 
     }
+
+    public override string[] whichToggle(){
+        string[] list = {"1","2","3","4"};
+        return list;
+    }
 }

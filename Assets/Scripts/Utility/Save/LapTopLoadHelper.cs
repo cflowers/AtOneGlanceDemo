@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 /**
  * This is used for loading the needed information
@@ -13,20 +14,35 @@ public class LapTopLoadHelper
     Misc misc = new Misc();
     FillPanelMap map = new FillPanelMap();
     List<string> keys;
-   
-    
+    Dictionary<string, SuspectGameObject> bufferMap = new Dictionary<string, SuspectGameObject>();
+
     public void load(bool first)
     {
         //if this is not a new game and this method
         //never been called load information
-        if (!LapTopInfo.Dat.NewGame && first)
+        Debug.Log("New Game:" + LapTopInfo.Dat.NewGame);
+          Debug.Log("New Game2:" + first);
+        if (!LapTopInfo.Dat.NewGame || first)
         {
+          try{
             Debug.Log("Loading Information for Suspects");
             map.fillPanelMap();
-            keys = new List<string>(map.Map.Keys);
+             this.bufferMap = map.Map;
+            //keys = new List<string>(this.bufferMap.Keys);
             loadButtons();
             loadInputInfo();
             loadPanels();
+          }
+          catch(NullReferenceException nre){
+            loadButtons();
+            loadInputInfo();
+          }
+          catch(ArgumentException ae){
+            loadButtons();
+            loadInputInfo();
+            loadPanels();
+
+          }
         }
     }
 
@@ -48,7 +64,8 @@ public class LapTopLoadHelper
     void loadInputInfo()
     {
         GameObject recSuspect = Scene2_GettingObjs.getObjs().RecSuspect;
-        recSuspect.GetComponent<InputInfo>().map.Map = LapTopInfo.Dat.Map;
+       // recSuspect.GetComponent<InputInfo>().this.bufferMap = LapTopInfo.Dat.Map;
+       this.bufferMap = LapTopInfo.Dat.Map;
     }
 
     void loadPanels()
@@ -59,13 +76,13 @@ public class LapTopLoadHelper
 
     void setBtns(CFLinkedList<string> list, int i)
     {
-        keys = new List<string>(map.Map.Keys);
+        keys = new List<string>(this.bufferMap.Keys);
         foreach (string key in keys)
         {
             if (list.get(i) == key)
             {
-                GameObject.FindGameObjectWithTag(map.Map[key].getBtnName()).GetComponent<Image>().enabled = true;
-                GameObject.FindGameObjectWithTag(map.Map[key].getBtnName()).GetComponent<Button>().interactable = true;
+                GameObject.FindGameObjectWithTag(this.bufferMap[key].getBtnName()).GetComponent<Image>().enabled = true;
+                GameObject.FindGameObjectWithTag(this.bufferMap[key].getBtnName()).GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -158,8 +175,8 @@ public class LapTopLoadHelper
             if (key == name)
             {
                 Debug.Log("The key is " + key + " and the name is " + name);
-                Debug.Log("Therefore the panel name is " + map.Map[key].getPanelName());
-                resultList = findNotesName(map.Map[key].getPanelName());
+                Debug.Log("Therefore the panel name is " + this.bufferMap[key].getPanelName());
+                resultList = findNotesName(this.bufferMap[key].getPanelName());
                 break;
             }
         }
@@ -192,7 +209,7 @@ public class LapTopLoadHelper
         string name = null;
         foreach (string key in keys)
         {
-            if (map.Map[key].getPanelName() == tag)
+            if (this.bufferMap[key].getPanelName() == tag)
             {
                 name = key;
                 break;

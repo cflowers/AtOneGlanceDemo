@@ -35,7 +35,6 @@ public class CBSceneFPPicL : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-18, -123);
-        Debug.Log("Inspected:" + Inspection.getFPPicLInsp());
         if (!(Inspection.getFPPicLInsp()))
             c.createButtons("buttonFPPicLInspect", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_Inspection(); }),
               false, true);
@@ -57,11 +56,13 @@ public class CBSceneFPPicL : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");  
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new PictureLeftItem();
-        this.item.beginText();
+        //this.item.beginText();
         this.item.loadImage();
         //tb.GetComponent<DisplayText>().readLine = true;
+        JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("PictureLeft");  
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();
         Inspection.setFPPicLInsp(true);

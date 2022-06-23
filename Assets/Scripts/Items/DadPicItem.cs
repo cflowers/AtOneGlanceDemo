@@ -22,4 +22,9 @@ public class DadPicItem : AbstractItems
         base.loadPic("Pics/dadPic");
 
     }
+
+     public override string[] whichToggle(){
+        string[] list = {"1","2"};
+        return list;
+    }
 }

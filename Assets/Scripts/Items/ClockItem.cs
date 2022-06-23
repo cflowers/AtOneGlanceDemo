@@ -22,4 +22,8 @@ public class ClockItem : AbstractItems
         base.loadPic("Pics/clock");
 
     }
+
+     public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

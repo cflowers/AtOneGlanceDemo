@@ -10,6 +10,7 @@ public class ListenerSave : MonoBehaviour {
     {
         //show save window
         Scene_GettingObjs.getObjs().SaveWindow.GetComponent<Canvas>().enabled = true;
+        Scene_GettingObjs.getObjs().LoadWindow.GetComponent<Canvas>().enabled = false;
     }
 
     public void save()
@@ -34,6 +35,7 @@ public class ListenerSave : MonoBehaviour {
         playerDat.savePoints();
         playerDat.saveInspection();
         playerDat.saveNewGame();
+        playerDat.saveBadges();
         bf.Serialize(file, playerDat);
         file.Close();
     }

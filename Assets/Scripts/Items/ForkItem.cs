@@ -22,4 +22,8 @@ public class ForkItem : AbstractItems
         base.loadPic("Pics/fork");
 
     }
+
+    public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

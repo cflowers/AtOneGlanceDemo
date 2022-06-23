@@ -60,10 +60,12 @@ public class CBSceneTiger : AbstractCBScene
     {
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+      //  tb.GetComponent<TextBox>().textBool = true;
         item = new TigerItem();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+         JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Tiger");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

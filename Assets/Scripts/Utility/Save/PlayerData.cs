@@ -59,6 +59,7 @@ public class PlayerData
     public bool fareedMess2 = false;
     public bool fareedMess3 = false;
     public bool anthraxBook = false;
+    public int badges = 0;
 
 
     public PlayerData()
@@ -80,6 +81,11 @@ public class PlayerData
     public void savePoints()
     {
         points = PlayerInfo.Points;
+    }
+
+      public void saveBadges()
+    {
+        badges = PlayerInfo.Badges;
     }
 
     public void saveInspection()

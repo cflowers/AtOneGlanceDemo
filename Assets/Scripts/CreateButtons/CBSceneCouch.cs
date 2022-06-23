@@ -36,8 +36,12 @@ public class CBSceneCouch : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0.5f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0.5f);
         dicAnchor["buttonPos"] = new Vector2(-90, 99);
+         if (!(Inspection.getCouchCD()))
         c.createButtons("buttonPillow", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_pillow(); }),
           false, true);
+        else if (Inspection.getCouchCD())
+        c.createButtons("buttonPillow", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_pillow(); }),
+          false, false);
     }
 
     private void createCouchBookButton()
@@ -45,8 +49,12 @@ public class CBSceneCouch : AbstractCBScene
         dicAnchor["anchorMin"] = new Vector2(0.5f, 0f);
         dicAnchor["anchorMax"] = new Vector2(0.5f, 0f);
         dicAnchor["buttonPos"] = new Vector2(-27, 59);
+          if (!(Inspection.getCouchBook()))
         c.createButtons("buttonBook", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_book(); }),
           false, true);
+           else if (Inspection.getCouchBook())
+            c.createButtons("buttonBook", c.getCanvas().GetComponent<Canvas>().transform, dicAnchor, new UnityAction(delegate { lis_book(); }),
+          false, false);
     }
 
     private void createBackButton()

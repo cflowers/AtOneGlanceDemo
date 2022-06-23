@@ -10,8 +10,13 @@ public class AwakeMain : MonoBehaviour {
     void Awake()
     {
         //display PlayerInfo
+        
         //Load Items int Json Object
-        using (StreamReader r = new StreamReader("Assets/Resources/Text/Json/Items.json"))
+        string path = Application.streamingAssetsPath + "/Items.json";
+
+        using (StreamReader r = new StreamReader(path))
+
+       // using (StreamReader r = new StreamReader("Assets/Resources/Text/Json/Items.json"))
         {
             JsonBuffer.jsonString = r.ReadToEnd();
         }
@@ -22,6 +27,8 @@ public class AwakeMain : MonoBehaviour {
         GameObject notebookToggle = Scene_GettingObjs.getObjs().NotebookToggle;
         Misc misc = new Misc();
         misc._ableToggles(notebookToggle, false);
+
+     
         
     }
 

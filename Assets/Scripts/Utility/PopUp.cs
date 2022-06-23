@@ -29,15 +29,18 @@ public class PopUp : MonoBehaviour
 
     void Update()
     {
+      
         timer.text = "Timer: " + (int)TimerSC.getTimer().RemainingSeconds;
         if (item != null)
             clue.text = item.getTextFile();
            
         reset();
+        
     }
 
     void reset()
     {
+       
         if (TimerSC.getTimer().IsTicking && TimerSC.getTimer().RemainingSeconds == 0 && StacyPhone == true)
         {
             helperReset("stacyMess1Zm");
@@ -100,8 +103,8 @@ public class PopUp : MonoBehaviour
         int points = PlayerInfo.Points;
         PlayerInfo.Points = points - 10;
         hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
-        TimerSC.getTimer().ResetTimer();
-        TimerSC.getTimer().IsTicking = false;
+        //TimerSC.getTimer().ResetTimer();
+        //TimerSC.getTimer().IsTicking = false;
     }
 
     public bool StacyPhone

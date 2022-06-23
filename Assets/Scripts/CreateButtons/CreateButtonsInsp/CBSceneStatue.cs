@@ -59,10 +59,12 @@ public class CBSceneStatue : AbstractCBScene
 
         destroyButtons();
         GameObject tb = GameObject.FindGameObjectWithTag("canvas");
-        tb.GetComponent<TextBox>().textBool = true;
+        //tb.GetComponent<TextBox>().textBool = true;
         item = new StatueItem();
-        this.item.beginText();
+       // this.item.beginText();
         this.item.loadImage();
+          JsonBuffer jsonBuffer = new JsonBuffer();
+        jsonBuffer.setToggleText("Statue");  
         //tb.GetComponent<DisplayText>().readLine = true;
         tb.GetComponent<DisplayText>().item = item;
         tb.GetComponent<DisplayText>().popUpNow();

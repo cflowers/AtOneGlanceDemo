@@ -16,7 +16,8 @@ public interface ItemsFactory
     bool getWrite();
     void loadPic(string path);
     Texture2D getPic();
-   
+    string getItemDesc();
+    string[] whichToggle();
 
    
 }

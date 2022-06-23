@@ -14,12 +14,16 @@ public class LogItem : AbstractItems
 
     public override bool getWrite()
     {
-        return true;
+        return false;
     }
 
     public override void loadImage()
     {
-        base.loadPic("Pics/victim");
+        base.loadPic("Pics/log");
 
+    }
+
+     public override string[] whichToggle(){
+        return base.whichToggle();
     }
 }

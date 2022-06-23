@@ -22,4 +22,8 @@ public class LogHolderItem : AbstractItems
         base.loadPic("Pics/logholder");
 
     }
+
+     public override string[] whichToggle(){
+        return base.whichToggle();
+    }
 }

@@ -15,7 +15,6 @@ public class AnimationCode : MonoBehaviour
 
     public void beginAnimation(RawImage rawImageComp, string fileName)
     {
-     //   Debug.Log("FIREPLACE ANIMATION1");
         pics = Resources.LoadAll<Texture2D>(fileName);
         this.rawImageComp = rawImageComp;
         beginAnimation1 = true;
@@ -35,7 +34,6 @@ public class AnimationCode : MonoBehaviour
 
         else if (beginAnimation1 == false && countFalse ==0)
         {
-            Debug.Log("Begin Animation is false");
             rawImageComp.enabled = false;
             countFalse = countFalse + 1;
         }
@@ -48,7 +46,6 @@ public class AnimationCode : MonoBehaviour
         if (counter1 < pics.Length)
         {
             rawImageComp.texture = pics[counter1];
-            //Debug.Log(rawImageComp.texture.name);
             counter1 += 1;
         }
 

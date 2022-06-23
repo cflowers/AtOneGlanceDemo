@@ -13,6 +13,7 @@ public class LoadInfo {
             PlayerInfo.NewGame = playerDat.NewGame;
             GameObject hud_points = Scene_GettingObjs.getObjs().Hud_points;
             hud_points.GetComponent<Text>().text = "POINTS:" + PlayerInfo.Points;
+            Debug.Log("TIRED OF THIS;");
             loadPlayerData(playerDat);
             loadInspections(playerDat);
         }

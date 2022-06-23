@@ -22,4 +22,9 @@ public class CouchBookItem : AbstractItems
         base.loadPic("Pics/couchbook");
 
     }
+
+     public override string[] whichToggle(){
+    string[] list = {"2"};
+        return list;
+    }
 }
